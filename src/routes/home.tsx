@@ -7,6 +7,7 @@ import HeroSection from '../components/Home/hero'
 import ProvenResultSection from '../components/Home/proven-result'
 import SeoExpertSection from '../components/Home/seo-expert'
 import ServicesSection from '../components/Home/services'
+import TestimonialSection from '../components/Home/testimonial'
 const Home = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ const Home = () => {
       <CaseStudySection />
       <SeoExpertSection />
       <ProvenResultSection />
+      <TestimonialSection />
     </div>
   )
 }
