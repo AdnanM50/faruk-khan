@@ -1,0 +1,73 @@
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+
+
+const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  return (
+    <header className="w-full inter-font bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <nav className="flex items-center justify-between py-5 relative">
+          {/* Left: Logo */}
+          <div className="flex flex-col items-start select-none" style={{ minWidth: 70 }}>
+            <Link to="/">
+              <img src="/logo.png" alt="Logo" className="h-12 w-auto" />
+            </Link>
+          </div>
+
+          {/* Right: Nav links + CTA (desktop) */}
+          <div className="flex items-center gap-8">
+            {/* Desktop Navigation */}
+            <ul className="hidden md:flex space-x-10">
+              <li><Link to="/" className="text-lg text-neutral-800 hover:text-neutral-600 font-normal">Home</Link></li>
+              <li><Link to="/services" className="text-lg text-neutral-800 hover:text-neutral-600 font-normal">Services</Link></li>
+              <li><Link to="/training" className="text-lg text-neutral-800 hover:text-neutral-600 font-normal">SEO Training</Link></li>
+              <li><Link to="/blogs" className="text-lg text-neutral-800 hover:text-neutral-600 font-normal">Blogs</Link></li>
+            </ul>
+            {/* CTA Button (desktop) */}
+            <div className="hidden md:flex items-center">
+              <button className="bg-neutral-900 hover:bg-neutral-800 text-white font-bold px-8 py-3 rounded-xl text-base transition-all">
+                Book a Free Call
+              </button>
+            </div>
+            {/* Mobile Hamburger */}
+            <div className="md:hidden flex items-center z-20">
+              <button
+                onClick={() => setMenuOpen((prev) => !prev)}
+                className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-neutral-400"
+                aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              >
+                {menuOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Menu */}
+          {menuOpen && (
+            <div className="fixed inset-0   z-10 md:hidden" onClick={() => setMenuOpen(false)}></div>
+          )}
+          <div
+            className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-30 transform transition-transform duration-300 md:hidden ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+          >
+            <div className="flex flex-col h-full p-8">
+              <ul className="flex flex-col space-y-8 mt-12">
+                <li><Link to="/" className="text-lg text-neutral-800 hover:text-neutral-600 font-normal" onClick={() => setMenuOpen(false)}>Home</Link></li>
+                <li><Link to="/services" className="text-lg text-neutral-800 hover:text-neutral-600 font-normal" onClick={() => setMenuOpen(false)}>Services</Link></li>
+                <li><Link to="/training" className="text-lg text-neutral-800 hover:text-neutral-600 font-normal" onClick={() => setMenuOpen(false)}>SEO Training</Link></li>
+                <li><Link to="/blogs" className="text-lg text-neutral-800 hover:text-neutral-600 font-normal" onClick={() => setMenuOpen(false)}>Blogs</Link></li>
+              </ul>
+              <div className="mt-auto">
+                <button className="w-full bg-neutral-900 hover:bg-neutral-800 text-white font-bold px-8 py-3 rounded-xl text-base transition-all mt-8">
+                  Book a Free Call
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
