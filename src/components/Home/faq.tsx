@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import SectionTitle from "../common/section-tittle";
+import Button from "../common/button";
 
 const faqs = [
   {
@@ -38,27 +40,24 @@ const faqs = [
 const FaqSection = () => {
   const [open, setOpen] = useState(0);
   return (
-    <section className="w-full min-h-[80vh] flex flex-col items-center justify-center  py-10 px-2 sm:px-6 relative">
+    <section className="w-full min-h-[100vh] inter-font flex flex-col items-center justify-center bg-[#F5F7F7] py-20 px-2 sm:px-6 relative">
       <div className="relative z-10 w-full max-w-2xl mx-auto flex flex-col items-center">
-        <span className="text-xs font-medium text-neutral-700 mb-2 mt-2 tracking-widest">FAQ</span>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#222] mb-6">
-          Frequently Asked Questions
-        </h2>
+        <SectionTitle label="FAQs" title="Frequently Asked Questions" />
         <div className="w-full flex flex-col gap-3">
           {faqs.map((item, idx) => {
             const isOpen = open === idx;
             return (
-              <div key={idx} className="bg-white bg-opacity-80 rounded-xl border border-neutral-200 overflow-hidden">
+              <div key={idx} className="bg-[#F5F7F7] bg-opacity-80 rounded-xl border border-neutral-200 overflow-hidden">
                 <button
-                  className="w-full flex items-center justify-between px-5 py-4 text-left focus:outline-none"
+                  className="w-full flex items-center justify-between px-5  text-left focus:outline-none"
                   onClick={() => setOpen(isOpen ? -1 : idx)}
                   aria-expanded={isOpen}
                 >
-                  <span className="font-semibold text-base text-neutral-900">{item.q}</span>
+                  <span className="font-bold text-base py-5 text-[#0C1115]">{item?.q}</span>
                   <span className="ml-2 text-neutral-700">{isOpen ? (
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="#222" strokeWidth="2" d="M6 15l6-6 6 6"/></svg>
+                    <svg width="20" height="20" fill="none" className="border-2 rounded-full " viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" stroke="#222" strokeWidth="2" strokeLinecap="round"/></svg>
                   ) : (
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="#222" strokeWidth="2" d="M6 9l6 6 6-6"/></svg>
+                    <svg width="20" height="20" fill="none" className="border-2 rounded-full " viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19" stroke="#222" strokeWidth="2" strokeLinecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="#222" strokeWidth="2" strokeLinecap="round"/></svg>
                   )}</span>
                 </button>
                 <div
@@ -68,16 +67,16 @@ const FaqSection = () => {
                   }}
                 >
                   {isOpen && item.a && (
-                    <div>{item.a}</div>
+                    <div className="text-[#464646] text-base">{item.a}</div>
                   )}
                 </div>
               </div>
             );
           })}
         </div>
-        <button className="mt-10 px-6 py-3 rounded-lg bg-neutral-900 text-white font-semibold text-base hover:bg-neutral-800 transition-all">
+        <Button className="mt-10 px-6 py-3 rounded-lg bg-neutral-900 text-white font-semibold text-base hover:bg-neutral-800 transition-all">
           Still have any Question?
-        </button>
+        </Button>
       </div>
     </section>
   );

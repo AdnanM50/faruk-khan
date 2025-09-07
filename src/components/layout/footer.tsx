@@ -34,7 +34,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#0C1115]  text-white pt-16 pb-4 px-4 md:px-0">
+    <footer className="bg-[#0C1115]  text-white py-16 pb-4 px-4 md:px-0">
       <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row justify-center items-center  md:justify-between md:items-start gap-12 md:gap-0">
         {/* Left: Gradient LET’S TALK */}
         <div className="md:w-1/2 flex flex-col items-start md:justify-center  md:items-start ">

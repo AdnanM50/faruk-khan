@@ -41,7 +41,7 @@ const ProvenResultSection = () => {
           {/* Results List */}
           <div className="flex flex-col gap-6">
             {results.map((item) => (
-              <div key={item.title} className="flex items-start gap-4 rounded-2xl border border-[#E2DADA] bg-[#FDF8F8] px-6 py-6">
+              <div key={item.title} className="flex items-start gap-4 rounded-2xl border border-[#E2DADA]  px-6 py-6">
                 <div className="mt-1">{item.icon}</div>
                 <div>
                   <h3 className="text-lg font-semibold mb-1 text-black">{item.title}</h3>

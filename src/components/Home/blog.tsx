@@ -1,4 +1,6 @@
 import React from "react";
+import SectionTitle from "../common/section-tittle";
+import Button from "../common/button";
 
 const blogs = [
   {
@@ -24,19 +26,16 @@ const blogs = [
 const BlogSection = () => (
   <section className="w-full flex flex-col items-center justify-center bg-white py-10 px-2 sm:px-6">
     <div className="w-full max-w-6xl mx-auto flex flex-col items-center">
-      <span className="text-xs font-medium text-neutral-700 mb-2 mt-2 tracking-widest">BLOGS</span>
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#222] mb-8">
-        Recent SEO Update & Blog
-      </h2>
-      <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+    <SectionTitle label="BLOGS" title="Recent SEO Update & Blog" />
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
         {blogs.map((blog, idx) => (
           <div
             key={idx}
-            className="flex flex-col rounded-2xl overflow-hidden border border-neutral-200 bg-white shadow-sm transition hover:shadow-lg"
+            className="flex flex-col rounded-2xl overflow-hidden border border-neutral-200 bg-white  transition hover:shadow-lg"
           >
-            <div className="w-full h-56 bg-neutral-100">
+            <div className="w-full max-h-[240px] bg-neutral-100">
               <img
-                src={blog.image}
+                src={'/blog.png'}
                 alt={blog.title}
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -55,9 +54,9 @@ const BlogSection = () => (
           </div>
         ))}
       </div>
-      <button className="mt-2 px-6 py-3 rounded-lg border border-neutral-900 text-neutral-900 font-semibold text-base hover:bg-neutral-900 hover:text-white transition-all">
+      <Button className="mt-2">
         Read All Posts
-      </button>
+      </Button>
     </div>
   </section>
 );

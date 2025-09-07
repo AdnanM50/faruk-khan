@@ -76,7 +76,7 @@ export default function SEOTestimonialSection() {
         {/* Left side */}
         <div className="flex flex-col items-center md:items-start gap-4 w-full md:w-[30%]">
           <img
-            src="https://via.placeholder.com/120x60.png?text=LOGO"
+            src="/clogo.png"
             alt="logo"
             className="w-[120px]"
           />
