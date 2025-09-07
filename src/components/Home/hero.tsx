@@ -34,6 +34,7 @@ const HeroSection = () => {
             src="/hero.jpg"
             alt="Md Faruk Khan"
             className="object-contain w-full max-w-[600px] md:max-w-[700px] lg:max-w-[800px] "
+            loading="lazy"
           />
         </div>
 
