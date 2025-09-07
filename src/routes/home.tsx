@@ -3,6 +3,7 @@ import AboutSection from '../components/Home/about'
 import BlogSection from '../components/Home/blog'
 import CaseStudySection from '../components/Home/case-study'
 import ClientSection from '../components/Home/client'
+import Contact from '../components/Home/contact'
 import ExpertSection from '../components/Home/expert'
 import FaqSection from '../components/Home/faq'
 import FeatureSection from '../components/Home/feature'
@@ -31,6 +32,7 @@ const Home = () => {
       <PriceSection />
       <FaqSection />
       <BlogSection />
+      {/* <Contact /> */}
       <SEOTestimonialSection />
       <LastStatement />
     </div>
