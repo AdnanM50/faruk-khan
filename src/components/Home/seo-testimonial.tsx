@@ -29,8 +29,6 @@ const testimonials = [
   },
 ];
 
-
-
 export default function SEOTestimonialSection() {
   const [hoverPause, setHoverPause] = useState(false);
 
@@ -44,11 +42,19 @@ export default function SEOTestimonialSection() {
     return (
       <>
         {[...Array(fullStars)].map((_, i) => (
-          <Star key={`full-${i}`} className="text-yellow-500 fill-yellow-500 text-xl" />
+          <Star
+            key={`full-${i}`}
+            className="text-yellow-500 fill-yellow-500 text-xl"
+          />
         ))}
-        {hasHalfStar && <StarHalf className="text-yellow-500 fill-yellow-500 text-xl" />}
+        {hasHalfStar && (
+          <StarHalf className="text-yellow-500 fill-yellow-500 text-xl" />
+        )}
         {[...Array(emptyStars)].map((_, i) => (
-          <StarOutline key={`empty-${i}`} className="text-yellow-500 text-xl" />
+          <StarOutline
+            key={`empty-${i}`}
+            className="text-yellow-500 text-xl"
+          />
         ))}
       </>
     );
@@ -58,7 +64,9 @@ export default function SEOTestimonialSection() {
     <section className="w-full bg-white py-12 px-6 md:px-12">
       {/* Title */}
       <div className="text-center mb-10">
-        <p className="uppercase tracking-wide text-gray-500 text-sm">Testimonial</p>
+        <p className="uppercase tracking-wide text-gray-500 text-sm">
+          Testimonial
+        </p>
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
           Empowering Futures through <br /> SEO Excellence
         </h2>
@@ -97,49 +105,93 @@ export default function SEOTestimonialSection() {
           onMouseLeave={() => setHoverPause(false)}
         >
           {/* Left gradient overlay */}
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-24 z-10" style={{background: 'linear-gradient(90deg, rgba(255,255,255,0.98) 65%, rgba(255,255,255,0.0) 100%)'}} />
-          <div className="flex flex-col gap-4">
-            {[0, 1].map((row) => (
-              <motion.div
-                key={row}
-                className="flex gap-4"
-                animate={{ x: ["0%", "-100%"] }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 20,
-                  ease: "linear",
-                  repeatType: "loop",
-                  repeatDelay: 0,
-                }}
-                style={{
-                  animationPlayState: hoverPause ? "paused" : "running",
-                }}
-              >
-                {[...testimonials, ...testimonials].map((t, i) =>
-                  i % 2 === row ? (
-                    <div
-                      key={row + '-' + i}
-                      className="min-w-[280px] max-w-[280px] bg-white shadow-md rounded-xl p-4 border border-gray-100"
-                    >
-                      <div className="flex items-center gap-3 mb-3">
-                        <img
-                          src={t.img}
-                          alt={t.name}
-                          className="w-10 h-10 rounded-full object-cover"
-                        />
-                        <div>
-                          <h4 className="font-semibold text-gray-900 text-sm">
-                            {t.name}
-                          </h4>
-                          <p className="text-xs text-blue-600">{t.company}</p>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 text-sm line-clamp-3">{t.text}</p>
+          <div
+            className="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-24 z-10"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(255,255,255,0.98) 65%, rgba(255,255,255,0.0) 100%)",
+            }}
+          />
+
+          {/* Two rows */}
+          <div className="flex flex-col gap-6">
+            {/* First row */}
+            <motion.div
+              className="flex gap-4"
+              animate={{ x: ["0%", "-100%"] }}
+              transition={{
+                repeat: Infinity,
+                duration: 25,
+                ease: "linear",
+              }}
+              style={{
+                animationPlayState: hoverPause ? "paused" : "running",
+              }}
+            >
+              {[...testimonials, ...testimonials].map((t, i) => (
+                <div
+                  key={`row1-${i}`}
+                  className="min-w-[280px] max-w-[280px] bg-white shadow-md rounded-xl p-4 border border-gray-100"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <img
+                      src={t.img}
+                      alt={t.name}
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 text-sm">
+                        {t.name}
+                      </h4>
+                      <p className="text-xs text-blue-600">{t.company}</p>
                     </div>
-                  ) : null
-                )}
-              </motion.div>
-            ))}
+                  </div>
+                  <p className="text-gray-600 text-sm line-clamp-3">
+                    {t.text}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Second row with offset (checkerboard effect) */}
+            <motion.div
+              className="flex gap-4"
+              animate={{ x: ["0%", "-100%"] }}
+              transition={{
+                repeat: Infinity,
+                duration: 25,
+                ease: "linear",
+              }}
+              style={{
+                animationPlayState: hoverPause ? "paused" : "running",
+              }}
+            >
+              {/* 👇 Add left margin so row starts offset */}
+              <div className="min-w-[140px]" />
+              {[...testimonials, ...testimonials].map((t, i) => (
+                <div
+                  key={`row2-${i}`}
+                  className="min-w-[280px] max-w-[280px] bg-white shadow-md rounded-xl p-4 border border-gray-100"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <img
+                      src={t.img}
+                      alt={t.name}
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 text-sm">
+                        {t.name}
+                      </h4>
+                      <p className="text-xs text-blue-600">{t.company}</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 text-sm line-clamp-3">
+                    {t.text}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </div>
