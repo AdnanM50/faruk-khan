@@ -27,7 +27,7 @@ const LastStatement = () => {
 					/>
 				</div>
 			</div>
-			<div className="flex flex-wrap items-center justify-center gap-[80px] mt-8">
+			<div className="flex flex-wrap items-center justify-center md:gap-[80px] gap-5 mt-8">
 				{[1, 2, 3, 4, 5].map((item, idx) => (
 					<img
 						key={"trustpilot-" + idx}

@@ -35,11 +35,11 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#0C1115]  text-white pt-16 pb-4 px-4 md:px-0">
-      <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row md:justify-between md:items-start gap-12 md:gap-0">
+      <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row justify-center items-center  md:justify-between md:items-start gap-12 md:gap-0">
         {/* Left: Gradient LET’S TALK */}
-        <div className="md:w-1/2 flex flex-col items-start md:justify-center md:items-start mb-8 md:mb-0">
+        <div className="md:w-1/2 flex flex-col items-start md:justify-center  md:items-start ">
           <h2
-            className="text-[64px] leading-[1] font-bold mb-0 select-none bg-clip-text text-transparent md:text-[100px] sm:text-[40px] text-start w-full"
+            className="text-[40px] leading-[1] font-bold mb-0 select-none bg-clip-text text-transparent md:text-[100px]  text-center sm:text-start w-full"
             style={{
               background: 'linear-gradient(90deg, #FFA347 0%, #FF5858 44%, #6938D6 100%)',
               WebkitBackgroundClip: 'text',
@@ -52,14 +52,14 @@ const Footer = () => {
           </h2>
         </div>
         {/* Right: 3 columns */}
-        <div className="flex flex-col sm:flex-row gap-8 md:gap-16 inter-font w-full md:w-1/2 justify-between">
+        <div className="flex flex-col sm:flex-row gap-8 md:gap-16 inter-font w-full md:w-1/2 sm:justify-between justify-center text-center sm:text-start items-center">
           {footerColumns.map((col, idx) => (
-            <div className="flex flex-col items-start" key={col.title}>
-              <h3 className="font-semibold text-lg mb-2">{col.title}</h3>
+            <div className="flex flex-col sm:items-start items-center" key={col.title}>
+              <h3 className="font-semibold text-lg !playfair-font mb-2">{col.title}</h3>
               {col.type === "list" ? (
                 <ul className="space-y-2 text-gray-300">
                   {(col.items as string[]).map((item) => (
-                    <li key={item} className="cursor-pointer transition-colors duration-200 hover:text-orange-500">{item}</li>
+                    <li key={item} className="cursor-pointer transition-colors text-xs duration-200 hover:text-orange-500">{item}</li>
                   ))}
                 </ul>
               ) : (
