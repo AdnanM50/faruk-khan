@@ -1,9 +1,9 @@
 const features = [
-  { name: 'Kaler Kantho', logo: '/featured/kalerkantho.png' },
-  { name: 'The Business Standard', logo: '/featured/tbs.png' },
-  { name: 'Samakal', logo: '/featured/samakal.png' },
-  { name: 'News24', logo: '/featured/news24.png' },
-  { name: 'BanglaMail', logo: '/featured/banglamail.png' },
+  { name: 'Kaler Kantho', logo: '/kk.png' },
+  { name: 'The Business Standard', logo: '/tb.png' },
+  { name: 'Samakal', logo: '/sm.png' },
+  { name: 'News24', logo: '/n24.png' },
+  { name: 'BanglaMail', logo: '/kb.png' },
 ];
 
 const FeatureSection = () => {
