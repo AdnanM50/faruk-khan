@@ -10,7 +10,7 @@ function Contact() {
     mobile: ''
   });
 
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field: keyof typeof formData, value: string) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
