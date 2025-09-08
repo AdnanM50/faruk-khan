@@ -1,8 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/css';
-import ReactApexChart from 'react-apexcharts';
+
 import GaugeChart from './GaugeChart';
 
 const caseStudies = [
@@ -91,7 +90,7 @@ const caseStudies = [
 const CaseStudySection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <section className="w-full py-16 bg-[#231012] bg-opacity-95">
+    <section className="w-full py-16 bg-[#121212] bg-opacity-95">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-2 text-xs tracking-widest text-[#BFA6A6]">CASE STUDIES</div>
         <h2 className="text-center text-2xl md:text-3xl font-semibold text-white mb-12 max-w-2xl mx-auto">
@@ -109,13 +108,12 @@ const CaseStudySection = () => {
                 {/* Left: Info */}
                 <div className="flex flex-col items-start">
                   <div className="flex items-center mb-4">
-                    <img src={study.logo} alt={study.company} className="w-14 h-14 rounded-xl object-contain bg-white p-2 shadow" />
+                    <img src={'/walton.png'} alt={study.company} className="w-32 h-32 rounded-xl object-contain bg-white p-2 shadow" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-2">{study.company}</h3>
                   <p className="text-[#E2DADA] text-sm mb-4 whitespace-pre-line">{study.description} <a href="#" className="text-[#BFA6A6] underline">Continue Reading</a></p>
                   <div className="flex gap-8 mb-8">
-                    <GaugeChart value={study.organicGrowth} label="Organic Growth" color="#AEE6FA" />
-                    <GaugeChart value={study.keywordRanking} label="Keyword Ranking" color="#AEE6FA" />
+                    <GaugeChart organicGrowth={study.organicGrowth} keywordRanking={study.keywordRanking} color="#AEE6FA" />
                   </div>
                   <button className="mt-4 px-8 py-3 border border-[#BFA6A6] text-[#BFA6A6] rounded-lg font-medium hover:bg-[#BFA6A6] hover:text-[#231012] transition">
                     Claim Your Growth
@@ -123,14 +121,8 @@ const CaseStudySection = () => {
                 </div>
                 {/* Right: Chart */}
                 <div className="flex justify-center items-center">
-                  <div className="bg-[#2D181B] bg-opacity-60 rounded-2xl p-6 w-full max-w-md">
-                    <ReactApexChart
-                      options={study.chart.options}
-                      series={study.chart.series}
-                      type="line"
-                      height={300}
-                    />
-                  </div>
+               
+                  <img src="/chart.png" alt="" />
                 </div>
               </div>
             </SwiperSlide>

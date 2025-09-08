@@ -24,7 +24,7 @@ const Home = () => {
       <ServicesSection />
       <AboutSection />
       <FeatureSection />
-      {/* <CaseStudySection /> */}
+      <CaseStudySection />
       <SeoExpertSection />
       <ProvenResultSection />
       {/* <TestimonialSection /> */}
