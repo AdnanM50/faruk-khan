@@ -8,7 +8,7 @@ const Header = () => {
   const menuItems = [
     { label: 'Home', to: '/' },
     { label: 'Services', to: '/service' },
-    { label: 'SEO Training', to: '/training' },
+    { label: 'SEO Training', to: '/seo-training' },
     { label: 'Blogs', to: '/blogs' },
   ];
   return (

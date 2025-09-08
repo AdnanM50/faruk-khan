@@ -131,7 +131,7 @@ export default function SEOTestimonialSection() {
               {[...testimonials, ...testimonials].map((t, i) => (
                 <div
                   key={`row1-${i}`}
-                  className="min-w-[280px] max-w-[280px] bg-white shadow-md rounded-xl p-4 border border-gray-100"
+                  className="min-w-[280px] max-w-[280px] bg-white  rounded-xl p-4 border border-gray-100"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <img
@@ -171,7 +171,7 @@ export default function SEOTestimonialSection() {
               {[...testimonials, ...testimonials].map((t, i) => (
                 <div
                   key={`row2-${i}`}
-                  className="min-w-[280px] max-w-[280px] bg-white shadow-md rounded-xl p-4 border border-gray-100"
+                  className="min-w-[280px] max-w-[280px] bg-white  rounded-xl p-4 border border-gray-100"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <img
