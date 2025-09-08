@@ -7,7 +7,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuItems = [
     { label: 'Home', to: '/' },
-    { label: 'Services', to: '/services' },
+    { label: 'Services', to: '/service' },
     { label: 'SEO Training', to: '/training' },
     { label: 'Blogs', to: '/blogs' },
   ];

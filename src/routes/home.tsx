@@ -28,7 +28,7 @@ const Home = () => {
       <SeoExpertSection />
       <ProvenResultSection />
       {/* <TestimonialSection /> */}
-      <ExpertSection />
+      {/* <ExpertSection /> */}
       <PriceSection />
       <FaqSection />
       <BlogSection />

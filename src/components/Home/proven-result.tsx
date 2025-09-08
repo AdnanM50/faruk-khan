@@ -1,22 +1,27 @@
 import { BadgeCheck, BarChart2, Globe2 } from 'lucide-react';
+import Button from '../common/button';
+import ResultsList from '../common/service-result';
 
 const results = [
   {
-    icon: <BadgeCheck size={28} className="text-[#231012]" />,
-    title: 'Proven SEO Expertise',
-    desc: 'With over a decade of experience in the Bangladesh SEO market, I offer an extensive wealth of knowledge and a consistent track record of success.',
+    icon: '/icons/medal-star.png',
+    title: 'Highly Competitive Environment',
+    desc: 'With millions of WordPress sites online, standing out in search results requires expertise. An SEO expert can help you rise above your competitors, particularly in first-tier markets like the USA and UK.',
   },
   {
-    icon: <BarChart2 size={28} className="text-[#231012]" />,
-    title: 'ROI Enhancement',
-    desc: 'With over a decade of experience in the Bangladesh SEO market, I offer an extensive wealth of knowledge and a consistent track record of success.',
+    icon: '/icons/chart3.png',
+    title: 'WordPress-Specific SEO',
+    desc: 'WordPress offers great flexibility, but optimizing it for SEO requires a deep understanding of plugins, technical settings, and customizations. I specialize in using WordPress to its full SEO potential, from improving page load speeds to structuring content efficiently.',
   },
   {
-    icon: <Globe2 size={28} className="text-[#231012]" />,
-    title: 'Local to Global SEO',
-    desc: 'With over a decade of experience in the Bangladesh SEO market, I offer an extensive wealth of knowledge and a consistent track record of success.',
+    icon: '/icons/cloud-change.png',
+    title: 'Organic Growth Without Ads',
+    desc: 'Paid ads can provide short-term traffic, but organic search delivers long-term, sustainable growth. I help WordPress websites build steady, high-quality traffic that converts without relying on continuous ad spend.',
   },
 ];
+
+
+
 
 const ProvenResultSection = () => {
   return (
@@ -26,34 +31,28 @@ const ProvenResultSection = () => {
         <h2 className="text-center text-2xl md:text-3xl font-semibold text-black mb-12 max-w-2xl mx-auto">
           Why Should You Take My SEO Consultancy?
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="flex flex-col md:flex-row gap-8 items-start md:items-stretch">
           {/* Image */}
-          <div className="flex justify-center">
-            <div className="rounded-2xl w-full max-w-[340px] flex items-center justify-center overflow-hidden shadow-md bg-[#F7F4F4]">
+          <div className="flex justify-center md:justify-start w-full md:w-1/2">
+            <div className="rounded-3xl w-full max-w-[380px] md:max-w-[520px] flex items-center justify-center overflow-hidden shadow-md  aspect-[0.635] md:aspect-[0.635]">
               <img
                 src="/proven.png"
                 alt="SEO Consultant"
-                className="object-cover rounded-2xl w-full h-auto max-w-[340px]"
+                className="object-cover rounded-2xl w-full h-full"
                 style={{ background: 'rgba(0,0,0,0.01)' }}
               />
             </div>
           </div>
           {/* Results List */}
-          <div className="flex flex-col gap-6">
-            {results.map((item) => (
-              <div key={item.title} className="flex items-start gap-4 rounded-2xl border border-[#E2DADA]  px-6 py-6">
-                <div className="mt-1">{item.icon}</div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-1 text-black">{item.title}</h3>
-                  <p className="text-sm text-[#7C6F6F]">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-            <button className="mt-8 px-8 py-3 border border-black text-black rounded-lg font-medium hover:bg-black hover:text-white transition self-center">
-              Schedule a Free Meeting
-            </button>
+          <div className="flex flex-col w-full md:w-1/2 justify-center">
+            <ResultsList items={results} />
           </div>
         </div>
+         <div className="flex justify-center mt-8">
+           <Button >
+      Schedule a Free Meeting
+    </Button>
+         </div>
       </div>
     </section>
   );

@@ -1,185 +1,8 @@
-
-// import React from "react";
-
-// const Contact = () => {
-// 	return (
-// 		<section className="contact-section" style={{ background: '#f8fafc', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 0' }}>
-// 			<div style={{ width: '100%', maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 48 }}>
-// 				{/* Left: Form */}
-// 				<div style={{ flex: '1 1 340px', maxWidth: 400, background: 'transparent', display: 'flex', flexDirection: 'column', gap: 16 }}>
-// 					<input type="text" placeholder="Your Name" style={inputStyle} />
-// 					<input type="text" placeholder="Website" style={inputStyle} />
-// 					<input type="email" placeholder="Email" style={inputStyle} />
-// 					<input type="text" placeholder="Mobile" style={inputStyle} />
-// 					<div style={{ display: 'flex', gap: 12, marginTop: 8 }}>
-// 						<button style={{ ...buttonStyle, background: '#111', color: '#fff', border: 'none' }}>Get Free Analysis</button>
-// 						<button style={{ ...buttonStyle, background: '#fff', color: '#111', border: '1px solid #d1d5db' }}>Book a Session</button>
-// 					</div>
-// 				</div>
-
-// 				{/* Right: Headings and Cards */}
-// 				<div style={{ flex: '2 1 500px', minWidth: 350, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 32 }}>
-// 					<div style={{ textAlign: 'center', marginBottom: 16 }}>
-// 						<div style={{ color: '#6b7280', fontSize: 14, letterSpacing: 1, fontWeight: 500, marginBottom: 8 }}>GET ADVISE</div>
-// 						<h2 style={{ fontWeight: 700, fontSize: 32, lineHeight: 1.2, color: '#111', margin: 0 }}>
-// 							Grow organic traffic with our complete<br />and SEO tools & workflow
-// 						</h2>
-// 					</div>
-// 					<div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', justifyContent: 'center' }}>
-// 						{/* Card 1: On Page SEO Checker */}
-// 						<div style={{ background: '#fff', borderRadius: 16, boxShadow: '0 2px 16px #0001', padding: 32, minWidth: 320, maxWidth: 350, flex: '1 1 320px', display: 'flex', flexDirection: 'column', gap: 16 }}>
-// 							<div style={{ fontWeight: 600, fontSize: 16, color: '#111', marginBottom: 8 }}>On Page SEO Checker</div>
-// 							<div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-// 								<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 100 }}>
-// 									<Gauge value={640} max={700} label="For 28 Pages" />
-// 									<div style={{ marginTop: 16 }}>
-// 										<Gauge value={52} max={100} label="Organic Growth" isPercent />
-// 									</div>
-// 								</div>
-// 								<div style={{ flex: 1 }}>
-// 									<ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 14, color: '#222', fontWeight: 500 }}>
-// 										<li style={liStyle}>✔ Strategy Ideas <span style={liNumStyle}>220</span></li>
-// 										<li style={liStyle}>✔ Technical SEO Ideas <span style={liNumStyle}>230</span></li>
-// 										<li style={liStyle}>✔ SERP Feature Ideas <span style={liNumStyle}>230</span></li>
-// 										<li style={liStyle}>✔ Semantic Ideas <span style={liNumStyle}>210</span></li>
-// 										<li style={liStyle}>✔ Backlinks Ideas <span style={liNumStyle}>210</span></li>
-// 										<li style={liStyle}>✔ User Experience Ideas <span style={liNumStyle}>220</span></li>
-// 										<li style={liStyle}>✔ Content Ideas <span style={liNumStyle}>210</span></li>
-// 									</ul>
-// 								</div>
-// 							</div>
-// 						</div>
-// 						{/* Card 2: Performance Test */}
-// 						<div style={{ background: '#fff', borderRadius: 16, boxShadow: '0 2px 16px #0001', padding: 24, minWidth: 220, maxWidth: 260, flex: '1 1 220px', display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'center', justifyContent: 'center' }}>
-// 							<div style={{ fontWeight: 600, fontSize: 15, color: '#111', marginBottom: 8 }}>Performance Test</div>
-// 							<Gauge value={55} max={100} label="" isPercent />
-// 							<div style={{ display: 'flex', gap: 12, margin: '12px 0' }}>
-// 								<StatusDot color="#111" label="Working" />
-// 								<StatusDot color="#fbbf24" label="Warning" />
-// 								<StatusDot color="#ef4444" label="Error" />
-// 							</div>
-// 							<ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: 13, color: '#222', fontWeight: 500, textAlign: 'left' }}>
-// 								<li>✔ HTML Tags</li>
-// 								<li>✔ Keywords</li>
-// 								<li>✔ Performance</li>
-// 								<li>✔ Desktop</li>
-// 								<li>✔ Mobile</li>
-// 								<li>✔ UI/AX</li>
-// 							</ul>
-// 						</div>
-// 					</div>
-// 				</div>
-// 			</div>
-// 		</section>
-// 	);
-// };
-
-// // --- Styles ---
-// const inputStyle: React.CSSProperties = {
-// 	width: '100%',
-// 	padding: '12px 16px',
-// 	borderRadius: 8,
-// 	border: '1px solid #d1d5db',
-// 	fontSize: 15,
-// 	background: '#fff',
-// 	marginBottom: 0,
-// 	outline: 'none',
-// };
-
-// const buttonStyle: React.CSSProperties = {
-// 	padding: '12px 24px',
-// 	borderRadius: 8,
-// 	fontWeight: 600,
-// 	fontSize: 15,
-// 	cursor: 'pointer',
-// 	transition: 'all 0.2s',
-// };
-
-// const liStyle: React.CSSProperties = {
-// 	display: 'flex',
-// 	justifyContent: 'space-between',
-// 	alignItems: 'center',
-// 	marginBottom: 4,
-// };
-// const liNumStyle: React.CSSProperties = {
-// 	color: '#6b7280',
-// 	fontWeight: 400,
-// 	marginLeft: 8,
-// };
-
-// // --- Gauge Chart Component ---
-// interface GaugeProps {
-// 	value: number;
-// 	max: number;
-// 	label: string;
-// 	isPercent?: boolean;
-// }
-// const Gauge: React.FC<GaugeProps> = ({ value, max, label, isPercent }) => {
-// 	const percent = Math.min(100, Math.round((value / max) * 100));
-// 	const radius = 32;
-// 	const stroke = 6;
-// 	const circ = 2 * Math.PI * radius;
-// 	const offset = circ - (percent / 100) * circ;
-// 	return (
-// 		<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-// 			<svg width={72} height={72}>
-// 				<circle
-// 					cx={36}
-// 					cy={36}
-// 					r={radius}
-// 					stroke="#e5e7eb"
-// 					strokeWidth={stroke}
-// 					fill="none"
-// 				/>
-// 				<circle
-// 					cx={36}
-// 					cy={36}
-// 					r={radius}
-// 					stroke="#111"
-// 					strokeWidth={stroke}
-// 					fill="none"
-// 					strokeDasharray={circ}
-// 					strokeDashoffset={offset}
-// 					strokeLinecap="round"
-// 					style={{ transition: 'stroke-dashoffset 0.5s' }}
-// 				/>
-// 				<text
-// 					x="50%"
-// 					y="50%"
-// 					textAnchor="middle"
-// 					dy=".3em"
-// 					fontSize="20"
-// 					fontWeight="bold"
-// 					fill="#111"
-// 				>
-// 					{isPercent ? `${value}%` : value}
-// 				</text>
-// 			</svg>
-// 			<div style={{ fontSize: 13, color: '#6b7280', marginTop: 2 }}>{label}</div>
-// 		</div>
-// 	);
-// };
-
-// // --- Status Dot Component ---
-// const StatusDot: React.FC<{ color: string; label: string }> = ({ color, label }) => (
-// 	<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: 12, color: '#222' }}>
-// 		<span style={{ display: 'block', width: 16, height: 16, borderRadius: '50%', background: color, marginBottom: 2, border: '2px solid #e5e7eb' }}></span>
-// 		<span>{label}</span>
-// 	</div>
-// );
-
-// export default Contact;
-
 import React, { useState } from 'react';
-// import { CircularProgress } from './components/CircularProgress';
-// import { SEOBadge } from './components/SEOBadge';
-// import { SmallCircularChart } from './components/SmallCircularChart';
-import { Check } from 'lucide-react';
-import { CircularProgress } from '../contact/CircularProgress';
-import { SEOBadge } from '../contact/SEOBadge';
-import { SmallCircularChart } from '../contact/SmallCircularChart';
 
-function App() {
+import { Check } from 'lucide-react';
+
+function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     website: '',
@@ -187,7 +10,7 @@ function App() {
     mobile: ''
   });
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field, value) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
@@ -216,10 +39,14 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="flex flex-col lg:flex-row gap-12 items-start">
           {/* Left Side - Form */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm">
-            <div className="space-y-6">
+          <div className="w-full lg:w-1/2 space-y-4">
+            <h1 className="text-center text-2xl font-bold text-gray-800 mb-8">
+              Grow organic traffic with our complete and SEO tools & workflow
+            </h1>
+            
+            <div className="space-y-4">
               <div>
                 <input
                   type="text"
@@ -272,98 +99,169 @@ function App() {
           </div>
 
           {/* Right Side - SEO Checker */}
-          <div className="space-y-8">
-            {/* On Page SEO Checker */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">On Page SEO Checker</h2>
+          <div className="w-full lg:w-1/2 relative">
+            {/* First Div - Larger one with SEO Checker */}
+            <div 
+              className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 absolute"
+              style={{ width: '600px', height: '450px', top: '0', left: '0' }}
+            >
+              {/* SEO Checker content */}
+              <h2 className="text-xl font-semibold text-gray-800 mb-6">OnPage SEO Checker</h2>
               
-              <div className="flex items-start gap-8">
-                {/* Main Circular Chart */}
-                <div className="flex-shrink-0">
-                  <CircularProgress
-                    percentage={75}
-                    size={160}
-                    strokeWidth={12}
-                    color="#374151"
-                    backgroundColor="#E5E7EB"
-                  >
+              {/* Main circular progress */}
+              <div className="mb-6 flex justify-center">
+                <div className="relative w-32 h-32">
+                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      stroke="#e5e7eb"
+                      strokeWidth="10"
+                      className="opacity-50"
+                    />
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      stroke="#1f2937"
+                      strokeWidth="10"
+                      strokeDasharray="283"
+                      strokeDashoffset="141.5"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-gray-900">640</div>
+                      <div className="text-3xl font-bold text-gray-800">640</div>
                       <div className="text-sm text-gray-500">for 28 Pages</div>
                     </div>
-                  </CircularProgress>
+                  </div>
                 </div>
-                
-                {/* SEO Categories */}
-                <div className="flex-1 grid grid-cols-1 gap-4">
-                  {seoCategories.map((category, index) => (
-                    <SEOBadge
-                      key={index}
-                      label={category.label}
-                      abbreviation={category.abbreviation}
-                      score={category.score}
-                      bgColor={category.bgColor}
+              </div>
+
+              {/* SEO categories grid */}
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                {seoCategories.map((item, index) => (
+                  <div key={index} className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <span className={`w-6 h-6 ${item.bgColor || 'bg-gray-800'} text-white text-xs font-medium rounded flex items-center justify-center`}>
+                        {item.abbreviation}
+                      </span>
+                      <span className="text-sm text-gray-700">{item.label}</span>
+                    </div>
+                    <span className="text-sm text-gray-500">{item.score}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Organic Growth circle */}
+              <div className="flex justify-center">
+                <div className="relative w-24 h-24">
+                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      stroke="#e5e7eb"
+                      strokeWidth="10"
+                      className="opacity-50"
                     />
-                  ))}
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      stroke="#1f2937"
+                      strokeWidth="10"
+                      strokeDasharray="283"
+                      strokeDashoffset="141.5"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-gray-800">52%</div>
+                      <div className="text-xs text-gray-500">Organic Growth</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-
-            {/* Performance Test */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 mb-6">Performance Test</h3>
+            
+            {/* Second Div - Smaller one on top with Performance Test */}
+            <div 
+              className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 absolute"
+              style={{ 
+                width: '400px', 
+                height: '300px',
+                top: '225px', // 50% of the first div's height (450px * 0.5 = 225px)
+                left: '100px'
+              }}
+            >
+              {/* Performance Test content */}
+              <h2 className="text-xl font-semibold text-gray-800 mb-6">Performance Test</h2>
               
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Left side - Charts */}
-                <div className="space-y-6">
-                  {/* Organic Growth Chart */}
-                  <div className="flex flex-col items-center">
-                    <CircularProgress
-                      percentage={52}
-                      size={140}
-                      strokeWidth={10}
-                      color="#374151"
-                      backgroundColor="#E5E7EB"
-                    >
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-gray-900">52%</div>
-                        <div className="text-xs text-gray-500">Organic Growth</div>
-                      </div>
-                    </CircularProgress>
-                  </div>
-                  
-                  {/* Performance Score */}
-                  <div className="flex items-center justify-between">
-                    <CircularProgress
-                      percentage={55}
-                      size={100}
-                      strokeWidth={8}
-                      color="#374151"
-                      backgroundColor="#E5E7EB"
-                    >
-                      <div className="text-center">
-                        <div className="text-xl font-bold text-gray-900">55%</div>
-                      </div>
-                    </CircularProgress>
-                    
-                    {/* Small Charts */}
-                    <div className="flex gap-4">
-                      <SmallCircularChart value={43} label="Working" />
-                      <SmallCircularChart value={43} label="Warning" />
-                      <SmallCircularChart value={43} label="Error" />
+              {/* Performance circle */}
+              <div className="flex justify-center mb-6">
+                <div className="relative w-32 h-32">
+                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      stroke="#e5e7eb"
+                      strokeWidth="10"
+                      className="opacity-50"
+                    />
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="45"
+                      fill="none"
+                      stroke="#1f2937"
+                      strokeWidth="10"
+                      strokeDasharray="283"
+                      strokeDashoffset="127"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-gray-800">55%</div>
                     </div>
                   </div>
                 </div>
-                
-                {/* Right side - Checklist */}
-                <div className="space-y-4">
-                  {checklistItems.map((item, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-green-600" />
-                      <span className="text-sm text-gray-700">{item}</span>
+              </div>
+
+              {/* Checklist */}
+              <div className="space-y-2 mb-6">
+                {checklistItems.map((item, index) => (
+                  <div key={index} className="flex items-center space-x-2">
+                    <Check className="w-4 h-4 text-green-500" />
+                    <span className="text-sm text-gray-700">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Status indicators */}
+              <div className="flex justify-center space-x-6">
+                {[
+                  { status: 'Working', count: 43, color: 'bg-green-100' },
+                  { status: 'Warning', count: 43, color: 'bg-yellow-100' },
+                  { status: 'Error', count: 43, color: 'bg-red-100' }
+                ].map((item, index) => (
+                  <div key={index} className="text-center">
+                    <div className={`w-8 h-8 rounded-full ${item.color} flex items-center justify-center`}>
+                      <span className="text-xs font-bold text-gray-700">{item.count}</span>
                     </div>
-                  ))}
-                </div>
+                    <div className="text-xs text-gray-600 mt-1">{item.status}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -373,4 +271,4 @@ function App() {
   );
 }
 
-export default App;
+export default Contact;

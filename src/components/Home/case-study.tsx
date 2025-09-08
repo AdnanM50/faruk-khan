@@ -104,20 +104,17 @@ const CaseStudySection = () => {
         >
           {caseStudies.map((study, idx) => (
             <SwiperSlide key={idx}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
                 {/* Left: Info */}
-                <div className="flex flex-col items-start">
+                <div className="flex flex-col ">
                   <div className="flex items-center mb-4">
                     <img src={'/walton.png'} alt={study.company} className="w-32 h-32 rounded-xl object-contain bg-white p-2 shadow" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-2">{study.company}</h3>
                   <p className="text-[#E2DADA] text-sm mb-4 whitespace-pre-line">{study.description} <a href="#" className="text-[#BFA6A6] underline">Continue Reading</a></p>
-                  <div className="flex gap-8 mb-8">
+                  <div className="flex gap-8 mb-8 md:items-start items-center md:justify-start justify-center">
                     <GaugeChart organicGrowth={study.organicGrowth} keywordRanking={study.keywordRanking} color="#AEE6FA" />
                   </div>
-                  <button className="mt-4 px-8 py-3 border border-[#BFA6A6] text-[#BFA6A6] rounded-lg font-medium hover:bg-[#BFA6A6] hover:text-[#231012] transition">
-                    Claim Your Growth
-                  </button>
                 </div>
                 {/* Right: Chart */}
                 <div className="flex justify-center items-center">
@@ -127,6 +124,11 @@ const CaseStudySection = () => {
               </div>
             </SwiperSlide>
           ))}
+                <div className="flex justify-center items-center">
+                    <button className="mt-4 px-8 py-3 mx-auto border text-white rounded-lg font-medium transition">
+                    Claim Your Growth
+                  </button>
+                </div>
         </Swiper>
       </div>
     </section>

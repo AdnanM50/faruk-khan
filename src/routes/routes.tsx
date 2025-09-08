@@ -3,8 +3,8 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './home';
-import About from './about';
 import Layout from '../components/layout/Layout';
+import Service from './sevice-page';
 
 // Home component
 
@@ -24,7 +24,7 @@ function IndexRoutes() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
+          <Route path="service" element={<Service />} />
           <Route path="contactus" element={<ContactUs />} />
           <Route path="*" element={<NotFound />} />
         </Route>

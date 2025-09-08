@@ -6,7 +6,11 @@ interface GaugeChartProps {
   color?: string;
 }
 
-const Gauge: React.FC<{ value: number; label: string; color: string }> = ({ value, label, color }) => {
+const Gauge: React.FC<{ value: number; label: string; color: string }> = ({
+  value,
+  label,
+  color,
+}) => {
   const radius = 80;
   const stroke = 14;
   const center = radius + stroke / 2;
@@ -21,16 +25,28 @@ const Gauge: React.FC<{ value: number; label: string; color: string }> = ({ valu
   const startY = center;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", minWidth: 220 }}>
-      <div style={{ position: "relative", width: radius * 2 + stroke, height: radius + stroke }}>
+    <div
+      className="flex flex-col items-center"
+      style={{ maxWidth: "200px", width: "100%" }}
+    >
+      <div
+        style={{
+          position: "relative",
+          width: radius * 2 + stroke,
+          height: radius + stroke,
+          maxWidth: "100%",
+        }}
+      >
         <svg
           width={radius * 2 + stroke}
           height={radius + stroke}
-          style={{ display: "block" }}
+          style={{ display: "block", maxWidth: "100%", height: "auto" }}
         >
           {/* Track */}
           <path
-            d={`M ${startX},${startY} A ${normalizedRadius},${normalizedRadius} 0 0 1 ${center + normalizedRadius},${center}`}
+            d={`M ${startX},${startY} A ${normalizedRadius},${normalizedRadius} 0 0 1 ${
+              center + normalizedRadius
+            },${center}`}
             fill="none"
             stroke="#393939"
             strokeWidth={stroke}
@@ -38,7 +54,9 @@ const Gauge: React.FC<{ value: number; label: string; color: string }> = ({ valu
           />
           {/* Progress */}
           <path
-            d={`M ${startX},${startY} A ${normalizedRadius},${normalizedRadius} 0 0 1 ${center + normalizedRadius},${center}`}
+            d={`M ${startX},${startY} A ${normalizedRadius},${normalizedRadius} 0 0 1 ${
+              center + normalizedRadius
+            },${center}`}
             fill="none"
             stroke={color}
             strokeWidth={stroke}
@@ -48,7 +66,9 @@ const Gauge: React.FC<{ value: number; label: string; color: string }> = ({ valu
           {/* Over 100% arc */}
           {over > 0 && (
             <path
-              d={`M ${startX},${startY} A ${normalizedRadius},${normalizedRadius} 0 0 1 ${center + normalizedRadius},${center}`}
+              d={`M ${startX},${startY} A ${normalizedRadius},${normalizedRadius} 0 0 1 ${
+                center + normalizedRadius
+              },${center}`}
               fill="none"
               stroke="#444"
               strokeWidth={stroke}
@@ -58,7 +78,7 @@ const Gauge: React.FC<{ value: number; label: string; color: string }> = ({ valu
               style={{ opacity: 0.7 }}
             />
           )}
-          {/* Left start circle fill (fix gap only) */}
+          {/* Left start circle fill */}
           <circle cx={startX} cy={startY} r={stroke / 2} fill={color} />
         </svg>
         <div
@@ -70,9 +90,8 @@ const Gauge: React.FC<{ value: number; label: string; color: string }> = ({ valu
             textAlign: "center",
             color: "#fff",
             fontWeight: 700,
-            fontSize: 40,
+            fontSize: "clamp(18px, 5vw, 32px)", // responsive font size
             fontFamily: "Inter, sans-serif",
-            letterSpacing: 1,
             lineHeight: 1,
           }}
         >
@@ -81,13 +100,12 @@ const Gauge: React.FC<{ value: number; label: string; color: string }> = ({ valu
       </div>
       <div
         style={{
-          marginTop: 18,
+          marginTop: 12,
           color: "#fff",
-          fontSize: 24,
+          fontSize: "clamp(14px, 3vw, 20px)",
           fontWeight: 400,
           fontFamily: "Inter, sans-serif",
           textAlign: "center",
-          lineHeight: 1.2,
         }}
       >
         {label}
@@ -96,13 +114,15 @@ const Gauge: React.FC<{ value: number; label: string; color: string }> = ({ valu
   );
 };
 
-const GaugeChart: React.FC<GaugeChartProps> = ({ organicGrowth, keywordRanking, color = "#8ee0ff" }) => {
+const GaugeChart: React.FC<GaugeChartProps> = ({
+  organicGrowth,
+  keywordRanking,
+  color = "#8ee0ff",
+}) => {
   return (
     <div
-      className="flex flex-col items-center justify-center gap-6 bg-transparent p-0 rounded-none
-                 sm:flex-row sm:items-start sm:gap-8
-                 md:gap-12
-                 lg:gap-16"
+      className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-8  md:gap-12 lg:gap-16"
+      // style={{ maxWidth: "100%", flexWrap: "wrap" }}
     >
       <Gauge value={organicGrowth} label="Organic Growth" color={color} />
       <Gauge value={keywordRanking} label="Keyword Ranking" color={color} />
