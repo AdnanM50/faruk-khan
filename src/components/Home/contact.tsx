@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Check } from 'lucide-react';
+import { CircularProgress } from '../contact/CircularProgress';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -36,15 +37,32 @@ function Contact() {
     'UI/UX'
   ];
 
+  const [mainScorePercent, setMainScorePercent] = useState(75);
+  const [growthPercent, setGrowthPercent] = useState(0);
+  const [performancePercent, setPerformancePercent] = useState(0);
+
+  useEffect(() => {
+    // Start animations after mount
+    const id = setTimeout(() => {
+      setGrowthPercent(52);
+      setPerformancePercent(55);
+    }, 100);
+    return () => clearTimeout(id);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-gray-50 px-4 sm:px-8 py-12">
       <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col items-center mb-10">
+          <span className="text-xs tracking-widest font-semibold text-gray-500 uppercase">Get Advise</span>
+          <h1 className="mt-3 text-center text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight max-w-3xl">
+            Grow organic traffic with our complete
+            <br className="hidden sm:block" /> and SEO tools & workflow
+          </h1>
+        </div>
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           {/* Left Side - Form */}
-          <div className="w-full lg:w-1/2 space-y-4">
-            <h1 className="text-center text-2xl font-bold text-gray-800 mb-8">
-              Grow organic traffic with our complete and SEO tools & workflow
-            </h1>
+          <div className="w-full lg:w-2/5 space-y-4">
             
             <div className="space-y-4">
               <div>
@@ -99,95 +117,50 @@ function Contact() {
           </div>
 
           {/* Right Side - SEO Checker */}
-          <div className="w-full lg:w-1/2 relative">
+          <div className="w-full lg:w-3/5 relative min-h-[520px]">
             {/* First Div - Larger one with SEO Checker */}
             <div 
               className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 absolute"
-              style={{ width: '600px', height: '450px', top: '0', left: '0' }}
+              style={{ width: '100%', height: '470px', top: '0', left: '0' }}
             >
               {/* SEO Checker content */}
-              <h2 className="text-xl font-semibold text-gray-800 mb-6">OnPage SEO Checker</h2>
-              
-              {/* Main circular progress */}
-              <div className="mb-6 flex justify-center">
-                <div className="relative w-32 h-32">
-                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="45"
-                      fill="none"
-                      stroke="#e5e7eb"
-                      strokeWidth="10"
-                      className="opacity-50"
-                    />
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="45"
-                      fill="none"
-                      stroke="#1f2937"
-                      strokeWidth="10"
-                      strokeDasharray="283"
-                      strokeDashoffset="141.5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-gray-800">640</div>
-                      <div className="text-sm text-gray-500">for 28 Pages</div>
-                    </div>
+              <h2 className="text-xl font-semibold text-gray-800 mb-4">OnPage SEO Checker</h2>
+
+              {/* Two-column layout exactly like the mock: charts left, list right */}
+              <div className="grid grid-cols-[180px_1fr] gap-6">
+                {/* Left column: big chart, then small chart stacked */}
+                <div className="flex flex-col items-start gap-6">
+                  <div>
+                    <CircularProgress percentage={mainScorePercent} size={150} strokeWidth={12}>
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-gray-800">640</div>
+                        <div className="text-sm text-gray-500">for 28 Pages</div>
+                      </div>
+                    </CircularProgress>
+                  </div>
+                  <div>
+                    <CircularProgress percentage={growthPercent} size={120} strokeWidth={12}>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-gray-800">52%</div>
+                        <div className="text-xs text-gray-500">Organic Growth</div>
+                      </div>
+                    </CircularProgress>
                   </div>
                 </div>
-              </div>
 
-              {/* SEO categories grid */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                {seoCategories.map((item, index) => (
-                  <div key={index} className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <span className={`w-6 h-6 ${item.bgColor || 'bg-gray-800'} text-white text-xs font-medium rounded flex items-center justify-center`}>
-                        {item.abbreviation}
-                      </span>
-                      <span className="text-sm text-gray-700">{item.label}</span>
+                {/* Right column: SEO categories grid */}
+                <div className="grid grid-cols-2 gap-4 self-start">
+                  {seoCategories.map((item, index) => (
+                    <div key={index} className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <span className={`w-6 h-6 ${item.bgColor || 'bg-gray-800'} text-white text-xs font-medium rounded flex items-center justify-center`}>
+                          {item.abbreviation}
+                        </span>
+                        <span className="text-sm text-gray-700">{item.label}</span>
+                      </div>
+                      <span className="text-sm text-gray-500">{item.score}</span>
                     </div>
-                    <span className="text-sm text-gray-500">{item.score}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Organic Growth circle */}
-              <div className="flex justify-center">
-                <div className="relative w-24 h-24">
-                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="45"
-                      fill="none"
-                      stroke="#e5e7eb"
-                      strokeWidth="10"
-                      className="opacity-50"
-                    />
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="45"
-                      fill="none"
-                      stroke="#1f2937"
-                      strokeWidth="10"
-                      strokeDasharray="283"
-                      strokeDashoffset="141.5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-gray-800">52%</div>
-                      <div className="text-xs text-gray-500">Organic Growth</div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -196,68 +169,45 @@ function Contact() {
             <div 
               className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 absolute"
               style={{ 
-                width: '400px', 
-                height: '300px',
-                top: '225px', // 50% of the first div's height (450px * 0.5 = 225px)
-                left: '100px'
+                width: '480px', 
+                height: '320px',
+                top: '280px', 
+                left: '240px'
               }}
             >
               {/* Performance Test content */}
-              <h2 className="text-xl font-semibold text-gray-800 mb-6">Performance Test</h2>
-              
-              {/* Performance circle */}
-              <div className="flex justify-center mb-6">
-                <div className="relative w-32 h-32">
-                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="45"
-                      fill="none"
-                      stroke="#e5e7eb"
-                      strokeWidth="10"
-                      className="opacity-50"
-                    />
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="45"
-                      fill="none"
-                      stroke="#1f2937"
-                      strokeWidth="10"
-                      strokeDasharray="283"
-                      strokeDashoffset="127"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
+              <h2 className="text-xl font-semibold text-gray-800 mb-4">Performance Test</h2>
+
+              {/* Two-column layout: big chart left, checklist right */}
+              <div className="grid grid-cols-[170px_1fr] gap-8 items-start">
+                <div className="flex justify-center">
+                  <CircularProgress percentage={performancePercent} size={140} strokeWidth={12}>
                     <div className="text-center">
                       <div className="text-3xl font-bold text-gray-800">55%</div>
                     </div>
-                  </div>
+                  </CircularProgress>
+                </div>
+                {/* Checklist */}
+                <div className="space-y-3">
+                  {checklistItems.map((item, index) => (
+                    <div key={index} className="flex items-center space-x-2">
+                      <Check className="w-4 h-4 text-gray-900" />
+                      <span className="text-sm text-gray-700">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Checklist */}
-              <div className="space-y-2 mb-6">
-                {checklistItems.map((item, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <Check className="w-4 h-4 text-green-500" />
-                    <span className="text-sm text-gray-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-
               {/* Status indicators */}
-              <div className="flex justify-center space-x-6">
+              <div className="mt-8 flex justify-center space-x-10">
                 {[
-                  { status: 'Working', count: 43, color: 'bg-green-100' },
-                  { status: 'Warning', count: 43, color: 'bg-yellow-100' },
-                  { status: 'Error', count: 43, color: 'bg-red-100' }
+                  { status: 'Working', count: 43, color: 'bg-gray-900 text-white' },
+                  { status: 'Warning', count: 43, color: 'bg-gray-900 text-white' },
+                  { status: 'Error', count: 43, color: 'bg-gray-900 text-white' }
                 ].map((item, index) => (
                   <div key={index} className="text-center">
-                    <div className={`w-8 h-8 rounded-full ${item.color} flex items-center justify-center`}>
-                      <span className="text-xs font-bold text-gray-700">{item.count}</span>
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${item.color}`}>
+                      <span className="text-xs font-bold">{item.count}</span>
                     </div>
                     <div className="text-xs text-gray-600 mt-1">{item.status}</div>
                   </div>
