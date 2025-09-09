@@ -7,6 +7,7 @@ import ServicesSrx from "../components/service/service-srx"
 import ServicesHero from "../components/service/services-hero"
 import ServiceProvenResult from "../components/service/sevice-proven"
 import WordPressSEOProcess from "../components/service/wordpress"
+import ServiceCases from "../components/service/service-cases"
 
 const Service = () => {
   return (
@@ -15,6 +16,7 @@ const Service = () => {
  <ServiceProvenResult />
  <ServicesSrx />
  <ServiceProven />
+ <ServiceCases />
  <WordPressSEOProcess />
  <ServiceFaqSection />
   <SEOTestimonialSection />

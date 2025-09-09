@@ -36,7 +36,7 @@ const SeoHero = () => {
       {/* Right: Image */}
       <div className="flex-1 flex items-center justify-center min-w-[260px]">
         <img
-          src="/public/IMG_7413.png"
+          src="/Vintage_Film.png"
           alt="Md Faruk Khan at desk"
           className="w-full max-w-[340px] md:max-w-[400px] lg:max-w-[520px] h-auto rounded-3xl object-cover shadow-md"
           style={{ aspectRatio: '520/650' }}
