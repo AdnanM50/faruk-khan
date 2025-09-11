@@ -59,7 +59,7 @@ const Partners = () => {
       
       <section className="w-full py-12 px-2 md:px-8 bg-white flex flex-col items-center">
         <SectionTitle label="" title="My Educational Partners" />
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 w-full max-w-5xl">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 w-full max-w-7xl">
           {partners.map((partner, idx) => (
             <div
               key={idx}

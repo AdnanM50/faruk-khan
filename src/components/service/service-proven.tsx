@@ -22,7 +22,7 @@ const provenResults = [
 const ServiceProven = () => {
   return (
     <section className="w-full py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-10">
           <div className="text-xs font-semibold tracking-widest text-[#333333] mb-2">PROVEN RESULTS</div>
           <h2 className="text-2xl md:text-4xl font-bold text-black">Why Choose Me as Your WordPress SEO Expert?</h2>

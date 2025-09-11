@@ -2,21 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 import { Check } from 'lucide-react';
 import { CircularProgress } from '../contact/CircularProgress';
+import Contactform from './contactform';
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    website: '',
-    email: '',
-    mobile: ''
-  });
-
-  const handleInputChange = (field: keyof typeof formData, value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
-  };
+ 
 
   const seoCategories = [
     { label: 'Strategy Ideas', abbreviation: 'SI', score: 220, bgColor: 'bg-gray-800' },
@@ -64,72 +53,22 @@ function Contact() {
           {/* Left Side - Form */}
           <div className="w-full lg:w-2/5 space-y-4">
             
-            <div className="space-y-4">
-              <div>
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={(e) => handleInputChange('name', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-transparent text-gray-700 placeholder-gray-500"
-                />
-              </div>
-              
-              <div>
-                <input
-                  type="text"
-                  placeholder="Website"
-                  value={formData.website}
-                  onChange={(e) => handleInputChange('website', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-transparent text-gray-700 placeholder-gray-500"
-                />
-              </div>
-              
-              <div>
-                <input
-                  type="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={(e) => handleInputChange('email', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-transparent text-gray-700 placeholder-gray-500"
-                />
-              </div>
-              
-              <div>
-                <input
-                  type="tel"
-                  placeholder="Mobile"
-                  value={formData.mobile}
-                  onChange={(e) => handleInputChange('mobile', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-transparent text-gray-700 placeholder-gray-500"
-                />
-              </div>
-              
-              <div className="flex gap-4 pt-4">
-                <button className="flex-1 bg-black text-white py-3 px-6 rounded-lg font-medium hover:bg-gray-800 transition-colors">
-                  Get Free Analysis
-                </button>
-                <button className="flex-1 bg-white text-black py-3 px-6 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 transition-colors">
-                  Book a Session
-                </button>
-              </div>
-            </div>
+          <Contactform  />
           </div>
 
           {/* Right Side - SEO Checker */}
           <div className="w-full lg:w-3/5 relative min-h-[520px]">
             {/* First Div - Larger one with SEO Checker */}
             <div 
-              className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 absolute"
-              style={{ width: '100%', height: '470px', top: '0', left: '0' }}
+              className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 absolute w-[calc(100%)] h-[calc(520px-50px)] top-[calc(0px)] left-[calc(0px)]"
             >
               {/* SEO Checker content */}
               <h2 className="text-xl font-semibold text-gray-800 mb-4">OnPage SEO Checker</h2>
 
               {/* Two-column layout exactly like the mock: charts left, list right */}
-              <div className="grid grid-cols-[180px_1fr] gap-6">
+              <div className="flex gap-6">
                 {/* Left column: big chart, then small chart stacked */}
-                <div className="flex flex-col items-start gap-6">
+                <div className="flex flex-col items-start gap-6 basis-[180px] shrink-0">
                   <div>
                     <CircularProgress percentage={mainScorePercent} size={150} strokeWidth={12}>
                       <div className="text-center">
@@ -148,10 +87,10 @@ function Contact() {
                   </div>
                 </div>
 
-                {/* Right column: SEO categories grid */}
-                <div className="grid grid-cols-2 gap-4 self-start">
+                {/* Right column: SEO categories list using flex wrap */}
+                <div className="flex flex-wrap gap-x-4 gap-y-3 self-start">
                   {seoCategories.map((item, index) => (
-                    <div key={index} className="flex items-center justify-between">
+                    <div key={index} className="flex items-center justify-between w-1/2 pr-2">
                       <div className="flex items-center space-x-2">
                         <span className={`w-6 h-6 ${item.bgColor || 'bg-gray-800'} text-white text-xs font-medium rounded flex items-center justify-center`}>
                           {item.abbreviation}
@@ -167,20 +106,14 @@ function Contact() {
             
             {/* Second Div - Smaller one on top with Performance Test */}
             <div 
-              className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 absolute"
-              style={{ 
-                width: '480px', 
-                height: '320px',
-                top: '280px', 
-                left: '240px'
-              }}
+              className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 w-full mt-6 lg:mt-0 lg:absolute lg:w-[calc(480px)] lg:h-[calc(320px)] lg:top-[calc(280px)] lg:left-[calc(240px)]"
             >
               {/* Performance Test content */}
               <h2 className="text-xl font-semibold text-gray-800 mb-4">Performance Test</h2>
 
               {/* Two-column layout: big chart left, checklist right */}
-              <div className="grid grid-cols-[170px_1fr] gap-8 items-start">
-                <div className="flex justify-center">
+              <div className="flex gap-8 items-start">
+                <div className="flex justify-center basis-[170px] shrink-0">
                   <CircularProgress percentage={performancePercent} size={140} strokeWidth={12}>
                     <div className="text-center">
                       <div className="text-3xl font-bold text-gray-800">55%</div>

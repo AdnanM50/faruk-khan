@@ -85,6 +85,14 @@
   @apply border-t border-gray-200 md:border-t-0 md:border-l;
 }
 
+.testimonial-swiper .swiper-slide {
+          height: auto;
+        }
+        
+        .testimonial-swiper .swiper-wrapper {
+          align-items: stretch;
+        }
+
 .seo-process-number {
   @apply text-3xl font-bold text-neutral-700 mr-4 md:text-4xl md:mr-0 md:mb-2;
 }
