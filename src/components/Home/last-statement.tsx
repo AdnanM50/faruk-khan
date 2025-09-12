@@ -15,8 +15,7 @@ const LastStatement = () => {
 					<img
 						src="/quote-down-circle.png"
 						alt="Quote Decorative"
-						className="absolute right-6 -bottom-26 w-40 h-40  pointer-events-none select-none"
-						style={{zIndex: 1}}
+						className="absolute pointer-events-none select-none z-10 right-2 bottom-[-60px] w-24 h-24 sm:right-6 sm:bottom-[-104px] sm:w-40 sm:h-40 md:right-10 md:bottom-[-104px] md:w-44 md:h-44 lg:right-16 lg:bottom-[-120px] lg:w-48 lg:h-48"
 					/>
 				</div>
 				<div className="flex items-center justify-center gap-2">

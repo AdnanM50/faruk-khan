@@ -1,4 +1,6 @@
+import { Section } from "lucide-react";
 import React from "react";
+import SectionTitle from "../common/section-tittle";
 
 const courses = [
   {
@@ -32,43 +34,41 @@ const courses = [
 
 const Courses = () => {
   return (
-    <section className="w-full max-w-5xl mx-auto py-14 px-2 md:px-0 flex flex-col items-center">
-      <h4 className="text-xs md:text-sm text-[#555] font-medium tracking-widest text-center mb-2 uppercase">MY SEO COURSES</h4>
-      <h2 className="text-[24px] md:text-[32px] lg:text-[40px] font-bold text-[#121212] text-center mb-10 leading-tight">
-        Take Your SEO Game to Next Level
-      </h2>
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section className="w-full max-w-6xl mx-auto py-12 px-2 md:px-0 flex flex-col items-center">
+    
+      <SectionTitle label="MY SEO COURSES" title="Take Your SEO Game to Next Level" />
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 playfair-font gap-6 md:gap-[60px]">
         {courses.map((course, idx) => (
           <div
             key={idx}
-            className="bg-white rounded-2xl border border-[#F2F2F2] shadow-sm flex flex-col p-6 md:p-8 lg:p-10 min-h-[480px] max-w-xl mx-auto"
+            className="bg-white rounded-[20px] border border-[#F2F2F2]  flex flex-col p-5 md:p-8 lg:p-10 min-h-[480px] w-full max-w-xl mx-auto"
           >
             <div className="flex items-center justify-between mb-4">
-              <span className="bg-[#F5F5F5] text-[#333] text-sm md:text-base font-semibold rounded px-4 py-2">
+              <span className="bg-[#F5F5F5] text-[#242424] text-[16px] md:text-[18px] font-bold rounded-[7px] px-4 py-1.5 md:py-2">
                 {course.type}
               </span>
-              <img src={course.logo} alt={course.logoAlt} className="h-8 md:h-10 w-auto sm:w-[124px] object-fill" />
+              <img src={course.logo} alt={course.logoAlt} className="h-8 md:h-10 w-auto max-w-[124px] object-contain" />
             </div>
-            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[#222] mb-1 leading-snug">
+            <h3 className="text-[22px] md:text-[28px] lg:text-[32px] font-bold text-[#242424] mb-1 leading-[1.1]">
               {course.title}
             </h3>
-            <div className="text-sm md:text-base text-[#555] mb-4">
+            <div className="text-[15px] md:text-[16px] text-[#3B3B3B] mb-2 font-medium">
               {course.location}
             </div>
             <div className="border-t border-[#E5E5E5] my-4"></div>
             <div className="mb-6">
-              <div className="text-sm md:text-base font-semibold mb-2 text-[#222]">This Course Includes</div>
-              <ul className="list-disc pl-5 space-y-1">
+              <div className="text-[15px] md:text-[16px] font-bold mb-2 text-[#222]">This Course Includes</div>
+              <ul className="list-disc pl-5 space-y-2">
                 {course.includes.map((item, i) => (
-                  <li key={i} className="text-sm md:text-base text-[#555]">
-                    <span className="font-medium">{item.label}:</span> <span className="font-bold text-[#222]">{item.value}</span>
+                  <li key={i} className="text-[15px] md:text-[16px] text-[#3B3B3B]">
+                    <span className="font-medium">{item.label}:</span> <span className="font-bold text-[#242424]">{item.value}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <a
               href={course.button.link}
-              className="mt-auto block w-full text-center border border-[#222] rounded-lg py-2 font-semibold text-[#222] hover:bg-[#222] hover:text-white transition-colors duration-200"
+              className="mt-auto block w-full text-center border border-[#242424] rounded-[10px] py-2.5 font-semibold text-[#242424] hover:bg-[#242424] hover:text-white transition-colors duration-200 text-[16px] md:text-[18px]"
             >
               {course.button.text}
             </a>

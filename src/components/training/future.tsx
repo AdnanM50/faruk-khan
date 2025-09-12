@@ -4,13 +4,13 @@ import React from "react";
 // Feature cards data
 const features = [
   {
-    icon: "/icons/medal-star.png",
+    icon: "/icons/slider-horizontal.png",
     title: "Real-World Case Studies",
     desc: "Unlike other courses focusing solely on textbook strategies, I incorporate real-world case studies. This means students gain insights from actual SEO campaigns, understanding the successes and pitfalls and how to avoid them.",
     alt: "Case Studies Icon"
   },
   {
-    icon: "/icons/cloud-change.png",
+    icon: "/icons/3d-rotate.png",
     title: "Continuous Updates",
     desc: "SEO isn’t static. What worked a few years ago might be irrelevant today. My course constantly evolves, reflecting the latest best practices, algorithm changes, and industry shifts.",
     alt: "Continuous Updates Icon"
@@ -59,7 +59,12 @@ const FutureExperts = () => {
           </div>
         </div>
       </div>
-      
+       <h3 className="text-[32px] md:text-[40px] font-bold text-[#121212] text-center mb-2 mt-2 leading-[48px]">
+        A Decade of Expertise: Why My SEO Course Stands Out
+      </h3>
+      <p className="text-center text-[16px] font-normal text-[#555555] max-w-3xl mb-8 leading-[26px]">
+        In the dynamic world of search engine optimization, experience and adaptability are paramount. With about decade of navigating the ever-changing landscape of SEO, I have gained an unparalleled wealth of real-world experience. I also realized that the knowledge of what truly works in SEO isn’t theory—it’s a practical, hands-on training that I’ve refined over the years to ensure my students can tackle real-world SEO challenges.
+      </p>
     
       {/* Feature Cards Section - Responsive Grid */}
       <div className="w-full flex flex-col items-center mb-14">
@@ -69,21 +74,16 @@ const FutureExperts = () => {
           {features.map((feature, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-start bg-white rounded-2xl px-4 py-8 md:px-6 md:py-[60px] w-full min-h-[182px] border border-[#F2F2F2] shadow transition-transform hover:scale-[1.03] hover:shadow-lg"
+              className="flex flex-col items-start bg-white rounded-2xl px-4 py-8 md:px-6 md:py-[60px] w-full min-h-[182px] border border-[#F2F2F2] "
             >
-              <img src={feature.icon} alt={feature.alt} className="w-8 h-8 mb-2" />
+              <img src={feature.icon} alt={feature.alt} className="w-10 h-10 mb-2" />
               <h4 className="font-semibold text-lg md:text-xl mb-1 text-[#333]">{feature.title}</h4>
               <p className="text-[#555] text-base md:text-[16px] leading-relaxed">{feature.desc}</p>
             </div>
           ))}
         </div>
       </div>
-      <h3 className="text-[32px] md:text-[40px] font-bold text-[#121212] text-center mb-2 mt-2 leading-[48px]">
-        A Decade of Expertise: Why My SEO Course Stands Out
-      </h3>
-      <p className="text-center text-[16px] font-normal text-[#555555] max-w-3xl mb-8 leading-[26px]">
-        In the dynamic world of search engine optimization, experience and adaptability are paramount. With about decade of navigating the ever-changing landscape of SEO, I have gained an unparalleled wealth of real-world experience. I also realized that the knowledge of what truly works in SEO isn’t theory—it’s a practical, hands-on training that I’ve refined over the years to ensure my students can tackle real-world SEO challenges.
-      </p>
+     
 
     </section>
   );

@@ -34,31 +34,23 @@ export default function SEOTestimonialSection() {
 
   const rating = 4.92; // Dynamic rating
 
-  // Function to render stars with half-star support using Lucide icons
-  const renderStars = (rating: number) => {
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-    return (
-      <>
-        {[...Array(fullStars)].map((_, i) => (
-          <Star
-            key={`full-${i}`}
-            className="text-yellow-500 fill-yellow-500 text-xl"
-          />
-        ))}
-        {hasHalfStar && (
-          <StarHalf className="text-yellow-500 fill-yellow-500 text-xl" />
-        )}
-        {[...Array(emptyStars)].map((_, i) => (
-          <StarOutline
-            key={`empty-${i}`}
-            className="text-yellow-500 text-xl"
-          />
-        ))}
-      </>
-    );
-  };
+  // SVGs to match the exact image: 4 full orange stars, 1 half orange star
+  const Star = () => (
+    <svg className="w-10 h-10" viewBox="0 0 24 24" fill="#FFA726">
+      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+    </svg>
+  );
+  const HalfStar = () => (
+    <svg className="w-10 h-10" viewBox="0 0 24 24">
+      <defs>
+        <linearGradient id="halfStarGradient" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="50%" stopColor="#FFA726" />
+          <stop offset="50%" stopColor="#F3F3F3" />
+        </linearGradient>
+      </defs>
+      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#halfStarGradient)" />
+    </svg>
+  );
 
   return (
     <section className="w-full bg-white py-12 px-6 md:px-12">
@@ -80,19 +72,24 @@ export default function SEOTestimonialSection() {
             alt="logo"
             className="w-[120px]"
           />
-          <p className="text-2xl font-semibold">
-            {rating}/5 <span className="text-gray-500">Rating</span>
-          </p>
-          <div className="flex gap-1">{renderStars(rating)}</div>
-          <p className="text-gray-500 text-sm">
-            powered by{" "}
-            <span className="text-blue-500 font-semibold">Google</span>
-          </p>
+          <div className="flex items-end mb-1">
+            <span className="text-[48px] font-light text-gray-800 leading-none">4.92/5</span>
+            <span className="text-2xl ml-2 text-gray-700 font-normal">Rating</span>
+          </div>
+          <div className="flex gap-1 mt-2">
+            <Star /><Star /><Star /><Star /><HalfStar />
+          </div>
+          
+          <img
+            src="/image 2.png"
+            alt="Google Reviews Badge"
+            className="max-w-[247.75px] max-h-[34px] mt-2"
+          />
           <div className="flex gap-4 mt-4">
-            <button className="px-4 py-2 bg-black text-white rounded-lg text-sm">
-              Review Us
+            <button className="px-4 py-2 bg-black text-white cursor-pointer rounded-lg text-sm font-medium">
+               <img src="/icons/image 3.png" alt="arrow" className="inline-block mr-1" />Review Us
             </button>
-            <button className="px-4 py-2 border border-gray-400 rounded-lg text-sm">
+            <button className="px-4 py-2 border border-gray-400 cursor-pointer rounded-lg font-medium text-black text-sm">
               Read All Review
             </button>
           </div>
@@ -104,7 +101,7 @@ export default function SEOTestimonialSection() {
           onMouseEnter={() => setHoverPause(true)}
           onMouseLeave={() => setHoverPause(false)}
         >
-          {/* Left gradient overlay */}
+          
           <div
             className="pointer-events-none absolute left-0 top-0 h-full w-16 md:w-24 z-10"
             style={{

@@ -31,7 +31,7 @@ const ExpertSection = () => (
         As a seasoned SEO mentor and course coordinator, I’ve had the privilege of shaping the future of digital marketing through education. This section showcases the prestigious institutes where I contributed my expertise, teaching the next generation of SEO professionals. Each logo represents a partnership built on a commitment to excellence and a passion for empowering students with the skills they need to succeed in the ever-evolving world of search engine optimization.
       </p>
       <div
-        className="mt-4 w-full max-w-6xl mx-auto grid grid-cols-4 grid-rows-2 bg-white"
+        className="mt-4 w-full max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 grid-rows-2 bg-white"
       >
         {institutes.map((inst, idx) => {
           const isLastCol = (idx + 1) % 4 === 0;
@@ -41,8 +41,8 @@ const ExpertSection = () => (
               key={idx}
               className={
                 `flex items-center justify-center min-h-[180px] bg-white ` +
-                `${isLastCol ? '' : 'border-r border-neutral-200 '} ` +
-                `${isLastRow ? '' : 'border-b border-neutral-200 '}`
+                `${isLastCol ? '' : 'lg:border-r border-neutral-200 '} ` +
+                `${isLastRow ? '' : 'lg:border-b border-neutral-200 '}`
               }
             >
               <img
