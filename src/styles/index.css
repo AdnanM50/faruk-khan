@@ -109,3 +109,10 @@
 .seo-process-cta {
   @apply mt-10 px-8 py-3 rounded-md border border-gray-300 bg-white text-zinc-900 font-semibold shadow-sm transition-colors text-sm md:text-base hover:bg-gray-50;
 }
+.pagination-style {
+  --swiper-pagination-bullet-width: 10px;
+  --swiper-pagination-bullet-height: 10px;
+  --swiper-pagination-color: #fff;
+  --swiper-pagination-bullet-inactive-color: #fff;
+  --swiper-pagination-bullet-inactive-opacity: 0.5;
+}

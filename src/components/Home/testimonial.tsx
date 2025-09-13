@@ -99,7 +99,7 @@ export default function TestimonialSlider() {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       {/* Header */}
       <div className="text-center mb-12">
         <p className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">TESTIMONIAL</p>
@@ -109,42 +109,42 @@ export default function TestimonialSlider() {
       </div>
 
       {/* Slider Container */}
-      <div className="relative">
-        {/* Navigation Buttons - Positioned to overlay on cards */}
+      <div className="relative flex items-center px-8 md:px-12">
+        {/* Navigation Buttons - Positioned outside video container */}
         <button
           onClick={handlePrevSlide}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full shadow-md flex items-center justify-center hover:bg-white/90 transition-all duration-200 md:left-4"
+          className="absolute -left-6 md:-left-12 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10  rounded-full flex items-center justify-center "
           aria-label="Previous testimonial"
         >
-          <ChevronLeft className="w-5 h-5 text-gray-700" />
+          <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-gray-600" />
         </button>
 
         <button
           onClick={handleNextSlide}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full shadow-md flex items-center justify-center hover:bg-white/90 transition-all duration-200 md:right-4"
+          className="absolute -right-6 md:-right-12 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10  rounded-full flex items-center justify-center "
           aria-label="Next testimonial"
         >
-          <ChevronRight className="w-5 h-5 text-gray-700" />
+          <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-gray-600" />
         </button>
 
         {/* Swiper */}
         <Swiper
           modules={[Navigation, Pagination]}
-          spaceBetween={24}
+          spaceBetween={16}
           slidesPerView={1}
           onSwiper={setSwiper}
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
           breakpoints={{
             768: {
               slidesPerView: 2,
-              spaceBetween: 32,
+              spaceBetween: 24,
             },
             1024: {
               slidesPerView: 2,
-              spaceBetween: 40,
+              spaceBetween: 32,
             },
           }}
-          className="testimonial-swiper"
+          className="testimonial-swiper w-full"
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
@@ -153,73 +153,64 @@ export default function TestimonialSlider() {
                 <VideoThumb poster={testimonial.image} videoId={testimonial.videoId} hasVideo={testimonial.hasVideo} />
 
                 {/* Content */}
-                <div className="p-6 flex flex-col flex-1">
+                <div className="p-4 md:p-6 flex flex-col flex-1">
                   {/* Header with Name and Logo */}
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-bold text-gray-900">{testimonial.name}</h3>
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex-1">
+                      <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">{testimonial.name}</h3>
+                      {/* Website */}
+                      <div className="flex items-center gap-2">
+                        <Globe className="w-4 h-4 text-blue-500" />
+                        <a
+                          href={`https://${testimonial.website}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm font-medium"
+                        >
+                          {testimonial.website}
+                        </a>
+                      </div>
+                    </div>
                     <img
                       src={testimonial.logo || "/placeholder.svg"}
                       alt={`${testimonial.name} logo`}
-                      className="w-12 h-12 object-contain"
+                      className="w-10 h-10 md:w-12 md:h-12 object-contain ml-4"
                     />
                   </div>
 
-                  {/* Website */}
-                  <div className="flex items-center gap-2 mb-4">
-                    <Globe className="w-4 h-4 text-blue-500" />
-                    <a
-                      href={`https://${testimonial.website}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 hover:text-blue-600 transition-colors duration-200 text-sm font-medium"
-                    >
-                      {testimonial.website}
-                    </a>
-                  </div>
-
                   {/* Description */}
-                  <p className="text-gray-600 text-sm leading-relaxed">{testimonial.description}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed mt-2">{testimonial.description}</p>
                 </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
 
-        {/* Custom Pagination */}
-        <div className="flex justify-center mt-8 gap-2">
+        {/* Custom Pagination - Positioned below video cards */}
+       
+      </div>
+      <div className="flex justify-center mt-4 gap-2">
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => swiper?.slideTo(index)}
-              className={`w-3 h-3 rounded-full transition-colors duration-200 ${
+              className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors duration-200 ${
                 index === activeIndex ? "bg-gray-800" : "bg-gray-300"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
-      </div>
-
       {/* Call to Action */}
-      <div className="text-center mt-12">
+      <div className="text-center mt-8 md:mt-12">
         <Button
-          
-          className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200"
+          className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 md:px-8 rounded-lg font-medium transition-colors duration-200 text-sm md:text-base"
         >
           Claim Your Growth
         </Button>
       </div>
 
-      {/* Custom Styles */}
-      {/* <style jsx global>{`
-        .testimonial-swiper .swiper-slide {
-          height: auto;
-        }
-        
-        .testimonial-swiper .swiper-wrapper {
-          align-items: stretch;
-        }
-      `}</style> */}
+   
     </section>
   );
 }

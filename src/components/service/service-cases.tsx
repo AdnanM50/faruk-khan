@@ -147,7 +147,7 @@ const ServiceCases: React.FC = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="service-cases-pagination flex justify-center mt-4 md:mt-6 mb-2"></div>
+          <div className="service-cases-pagination pagination-style flex justify-center mt-4 md:mt-6 mb-2"></div>
         </div>
 
         <div className="flex justify-center">
