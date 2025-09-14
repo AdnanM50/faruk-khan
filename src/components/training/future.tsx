@@ -49,7 +49,7 @@ const FutureExperts = () => {
             <img src="/md-faruk-khan.png" alt="SEO Training 3" className="object-fill w-full h-full rounded-2xl" style={{objectPosition:'center', maxHeight: 414}} />
           </div>
           <div style={{width: 302, maxHeight: 414}} className="rounded-2xl overflow-hidden">
-            <img src="/public/IMG_7413.png" alt="SEO Training 4" className="object-fill w-full h-full rounded-2xl" style={{objectPosition:'center', maxHeight: 414}} />
+            <img src="/IMG_7413.png" alt="SEO Training 4" className="object-fill w-full h-full rounded-2xl" style={{objectPosition:'center', maxHeight: 414}} />
           </div>
         </div>
         {/* Bottom row */}
