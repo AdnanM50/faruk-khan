@@ -9,7 +9,7 @@ const Header = () => {
     { label: 'Home', to: '/' },
     { label: 'Services', to: '/service' },
     { label: 'SEO Training', to: '/seo-training' },
-    { label: 'Blogs', to: '/#' },
+    
   ];
   return (
     <header className="w-full inter-font bg-white">
