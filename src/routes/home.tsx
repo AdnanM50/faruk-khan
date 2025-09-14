@@ -27,7 +27,7 @@ const Home = () => {
       <CaseStudySection />
       <SeoExpertSection />
       <ProvenResultSection />
-      {/* <TestimonialSection /> */}
+      <TestimonialSection />
       <ExpertSection />
       <PriceSection />
       <FaqSection />

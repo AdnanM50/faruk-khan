@@ -11,12 +11,12 @@ const AboutSection = () => {
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Image */}
-          <div className="flex justify-center">
-            <div className="rounded-2xl w-full max-w-[370px] flex items-center justify-center">
+          <div className="flex md:justify-end justify-center">
+            <div className="rounded-2xl w-full max-w-[370px] flex items-center md:justify-end justify-center">
               <img
                 src="/about.png"
                 alt="Md Faruk Khan"
-                className="object-cover rounded-2xl w-full h-auto max-w-[340px] md:max-w-[320px] lg:max-w-[340px] shadow-md"
+                className="object-cover rounded-2xl w-full h-auto"
                 style={{ background: 'rgba(0,0,0,0.01)' }}
               />
             </div>
@@ -30,7 +30,7 @@ const AboutSection = () => {
             <p className="text-[#2d2d2d] text-base mb-6">
               With over a decade of experience, I have established myself as a pioneering SEO veteran in Bangladesh, known for my innovative strategies and results-driven approach.
             </p>
-            <button className="inline-flex items-center gap-1 text-sm font-medium text-black border border-black rounded-lg px-5 py-2.5 hover:bg-black hover:text-white transition mb-8 md:mb-10 w-fit">
+            <button className="inline-flex items-center gap-1 text-sm font-medium text-black border border-black rounded-full px-5 py-2.5 hover:bg-black hover:text-white transition mb-8 md:mb-10 w-fit">
               Know More About Me
               <span className="inline-block"><svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </button>
