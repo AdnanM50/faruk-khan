@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface GaugeChartProps {
   organicGrowth: number;
@@ -16,16 +16,57 @@ const Gauge: React.FC<{ value: number; label: string; color: string }> = ({
   const center = radius + stroke / 2;
   const normalizedRadius = radius;
   const circumference = Math.PI * normalizedRadius;
-  const percent = Math.min(value, 100);
-  const dash = (percent / 100) * circumference;
-  const over = value > 100 ? (value - 100) / 100 : 0;
+  const [displayValue, setDisplayValue] = useState(0);
+  const [inView, setInView] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-  // Left start point coords
+  // Animate value from 0 to value when in view
+  useEffect(() => {
+    let observer: IntersectionObserver | null = null;
+    if (ref.current) {
+      observer = new window.IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+            observer && observer.disconnect();
+          }
+        },
+        { threshold: 0.4 }
+      );
+      observer.observe(ref.current);
+    }
+    return () => {
+      if (observer) observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!inView) return;
+    let start = 0;
+    const duration = 1200; // ms
+    const startTime = performance.now();
+    function animate(now: number) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.round(progress * value);
+      setDisplayValue(current);
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    }
+    requestAnimationFrame(animate);
+    // eslint-disable-next-line
+  }, [inView, value]);
+
+  const percent = Math.min(displayValue, 100);
+  const dash = (percent / 100) * circumference;
+  const over = displayValue > 100 ? (displayValue - 100) / 100 : 0;
   const startX = center - normalizedRadius;
   const startY = center;
 
   return (
     <div
+      ref={ref}
       className="flex flex-col items-center"
       style={{ maxWidth: "200px", width: "100%" }}
     >
@@ -90,12 +131,12 @@ const Gauge: React.FC<{ value: number; label: string; color: string }> = ({
             textAlign: "center",
             color: "#fff",
             fontWeight: 700,
-            fontSize: "clamp(18px, 5vw, 32px)", // responsive font size
+            fontSize: "clamp(18px, 5vw, 32px)",
             fontFamily: "Inter, sans-serif",
             lineHeight: 1,
           }}
         >
-          {value}%
+          {displayValue}%
         </div>
       </div>
       <div

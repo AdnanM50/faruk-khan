@@ -108,7 +108,7 @@ const CaseStudySection = () => {
                 {/* Left: Info */}
                 <div className="flex flex-col ">
                   <div className="flex items-center mb-4">
-                    <img src={'/walton.png'} alt={study.company} className="w-32 h-32 rounded-xl object-contain bg-white p-2 shadow" />
+                    <img src={'/walton.png'} alt={study.company} className="md:w-32 w-10 h-10 md:h-32 rounded-xl object-contain bg-white p-2 shadow" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-2">{study.company}</h3>
                   <p className="text-[#E2DADA] text-sm mb-4 whitespace-pre-line">{study.description} <a href="#" className="text-[#BFA6A6] underline">Continue Reading</a></p>

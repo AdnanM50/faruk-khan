@@ -16,7 +16,7 @@ const lessons = [
   {
     title: "How to find Keywords for your website",
     duration: "10:32",
-    youtube: "https://www.youtube.com/embed/VIDEO_ID_3",
+  youtube: "https://www.youtube.com/embed/aJFK9k5i1ew?list=PLKBtl5eztC2GDSO3AQBxALURA0pmmG3vR&index=1",
     thumbnail: "/image.png"
   },
   {
@@ -70,7 +70,7 @@ const SeoVideoCourse = () => {
             <span className="font-semibold text-base md:text-lg text-[#0C1115]">{lessons[currentIdx].title}</span>
             <span className="text-xs md:text-sm text-[#555]">{lessons[currentIdx].duration}</span>
           </div>
-          <div className="rounded-2xl overflow-hidden bg-[#F5F5F5] mb-4 max-h-[328px] flex items-center justify-center">
+          <div className="rounded-2xl overflow-hidden bg-[#F5F5F5] mb-4 max-h-[328px] h-[228px] flex items-center justify-center">
             {!showVideo ? (
               <button
                 className="w-full h-full flex items-center justify-center relative group aspect-video"
@@ -83,7 +83,7 @@ const SeoVideoCourse = () => {
                   className="w-full h-full object-cover absolute inset-0"
                   style={{ objectFit: 'cover' }}
                 />
-                <span className="absolute inset-0 flex items-center justify-center z-10">
+                <span className="absolute inset-0 flex items-center justify-center cursor-pointer z-10">
                   <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
                     <circle cx="32" cy="32" r="32" fill="rgba(0,0,0,0.5)" />
                     <polygon points="26,20 48,32 26,44" fill="#fff" />
@@ -94,7 +94,11 @@ const SeoVideoCourse = () => {
               <iframe
                 width="100%"
                 height="100%"
-                src={lessons[currentIdx].youtube + '?autoplay=1'}
+                src={(() => {
+                  const url = lessons[currentIdx].youtube;
+                  // If url already has a ?, append &autoplay=1, else ?autoplay=1
+                  return url.includes('?') ? url + '&autoplay=1' : url + '?autoplay=1';
+                })()}
                 title={lessons[currentIdx].title}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

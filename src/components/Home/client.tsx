@@ -1,6 +1,17 @@
 import React from 'react';
 
-const clients = Array(10).fill({ name: 'Client Logo', logo: '/clientlogo.png' });
+const clients = [{ name: 'Client Logo', logo: '/clientlogo.png' },
+  { name: 'Client Logo', logo: '/brands/logo-13.png' },
+  { name: 'Client Log1', logo: '/clientlogo.png' },
+    { name: 'Client Logo2', logo: '/brands/logo-13.png' },
+  { name: 'Client Logo', logo: '/brands/logo-132.png' },
+  { name: 'Client Logo', logo: '/brands/logo-1323png.png' },
+   { name: 'Client Logo', logo: '/brands/logo-132.png' },
+  { name: 'Client Logo', logo: '/brands/logo-13d.png' },
+  { name: 'Client Logo', logo: '/brands/logo-1323png.png' },
+  { name: 'Client Logo', logo: '/brands/logo-13d.png' },
+  
+];
 
 const ClientSection = () => {
   return (

@@ -13,13 +13,13 @@ import PriceSection from '../components/Home/price'
 import ProvenResultSection from '../components/Home/proven-result'
 import SeoExpertSection from '../components/Home/seo-expert'
 import SEOTestimonialSection from '../components/Home/seo-testimonial'
-import SeoTestimonial from '../components/Home/seo-testimonial'
 import ServicesSection from '../components/Home/services'
 import TestimonialSection from '../components/Home/testimonial'
 const Home = () => {
   return (
-    <div>
+    <div >
       <HeroSection />
+      <div className="playfair-font">
       <ClientSection />
       <ServicesSection />
       <AboutSection />
@@ -35,6 +35,7 @@ const Home = () => {
       {/* <Contact /> */}
       <SEOTestimonialSection />
       <LastStatement />
+      </div>
     </div>
   )
 }

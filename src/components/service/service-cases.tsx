@@ -79,18 +79,32 @@ const data: CaseStudy = {
 };
 
 const MetricCard: React.FC<Kpi> = ({ value, label, description }) => {
+  const isHighlight = value === "180%";
   return (
-    <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl p-6 text-center text-white">
-      <div className="text-3xl md:text-4xl font-semibold mb-2">{value}</div>
-      <div className="text-xs text-[#BFA6A6] leading-tight whitespace-pre-line mb-3">{label}</div>
-      <p className="text-xs text-[#CFC7C7] leading-relaxed">{description}</p>
+    <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-8 flex flex-col items-center text-white min-h-[260px] sm:min-h-[320px]">
+      <div className="flex flex-col items-center w-full">
+        {isHighlight ? (
+          <div className="w-full flex justify-center">
+            <span className=" font-bold text-[36px] sm:text-[44px] lg:text-[54px] leading-none px-4 py-1.5 sm:px-6 sm:py-2 rounded-t-md" style={{fontFamily: 'Plus Jakarta Sans, sans-serif'}}>{value}</span>
+          </div>
+        ) : (
+          <span className="text-white font-bold text-[36px] sm:text-[44px] lg:text-[54px] leading-none" style={{fontFamily: 'Plus Jakarta Sans, sans-serif'}}>{value}</span>
+        )}
+        <span className={`mt-2 sm:mt-3 text-white text-[16px] sm:text-[18px] lg:text-[20px] font-bold leading-tight text-center`} style={{fontFamily: 'Plus Jakarta Sans, sans-serif'}}>
+          {label.split('\n').map((line, i) => (
+            <React.Fragment key={i}>{line}{i !== label.split('\n').length - 1 && <br />}</React.Fragment>
+          ))}
+        </span>
+        <div className="w-full border-t border-[#2A2A2A] my-4 sm:my-6"></div>
+        <p className="text-[#CFC7C7] text-[13px] sm:text-[15px] lg:text-[16px] leading-[1.6] text-left font-normal" style={{fontFamily: 'Plus Jakarta Sans, sans-serif'}}>{description}</p>
+      </div>
     </div>
   );
 };
 
 const ServiceCases: React.FC = () => {
   return (
-    <section className="w-full py-14 bg-[#111111]">
+    <section className="w-full playfair-font py-14 bg-[#111111]">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center text-[10px] tracking-[0.25em] text-[#BFA6A6] mb-2">CASE STUDIES</div>
         <h2 className="text-center text-2xl md:text-3xl font-semibold text-white mb-8">
@@ -100,7 +114,7 @@ const ServiceCases: React.FC = () => {
         <div className="w-full rounded-2xl border border-[#2A2A2A] bg-[#121212] p-5 md:p-6 mb-8">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <img src={data.logo} alt={data.company} className="w-10 h-10 rounded-full object-contain bg-[#0F0F0F]" />
+              <img src={data.logo} alt={data.company} className="w-10 md:w-[76px] h-10 md:h-[76px] rounded-xl object-contain bg-[#0F0F0F]" />
               <div className="flex flex-col">
                 <span className="text-white text-sm font-medium">{data.company}</span>
                 <a href={`https://${data.website}`} className="text-[11px] text-[#A7A1A1]" target="_blank" rel="noreferrer">
@@ -108,9 +122,9 @@ const ServiceCases: React.FC = () => {
                 </a>
               </div>
             </div>
-            <div className="text-right">
-              <div className="text-white text-lg leading-none">{data.totalCases}</div>
-              <div className="text-[10px] text-[#A7A1A1] leading-none mt-1">Case{data.totalCases > 1 ? "s" : ""} Studies</div>
+            <div className="flex  items-center justify-center min-w-[70px]">
+              <span className="text-white text-6xl font-semibold leading-none">{data.totalCases}</span>
+              <span className="text-white text-lg font-normal leading-tight" style={{marginTop: 2, lineHeight: 1.1}}>Case<br/>Studies</span>
             </div>
           </div>
 
