@@ -3,16 +3,16 @@ import SectionTitle from "../common/section-tittle";
 import { ArrowUpRight } from "lucide-react";
 
 const partners = [
-  { name: "10 Minute School", img: "/public/10min.png" },
-  { name: "UIU", img: "/public/uiu.png" },
-  { name: "Bangladesh Computer Council", img: "/public/bcc.png" },
-  { name: "BITM", img: "/public/bitm.png" },
-  { name: "Daffodil University", img: "/public/du.png" },
-  { name: "BTEB", img: "/public/dd.png" },
-  { name: "BTEB", img: "/public/bb.png" },
-  { name: "PencilBox Training Institute", img: "/public/pb.png" },
-  { name: "10 Minute School", img: "/public/10min.png" },
-  { name: "UIU", img: "/public/uiu.png" },
+  { name: "10 Minute School", img: "/10min.png" },
+  { name: "UIU", img: "/uiu.png" },
+  { name: "Bangladesh Computer Council", img: "/bcc.png" },
+  { name: "BITM", img: "/bitm.png" },
+  { name: "Daffodil University", img: "/du.png" },
+  { name: "BTEB", img: "/dd.png" },
+  { name: "BTEB", img: "/bb.png" },
+  { name: "PencilBox Training Institute", img: "/pb.png" },
+  { name: "10 Minute School", img: "/10min.png" },
+  { name: "UIU", img: "/uiu.png" },
 ];
 
 
@@ -21,7 +21,7 @@ const AboutMeHero = () => (
     {/* Left: Image */}
     <div className="flex-1 flex items-center justify-center w-full max-w-lg">
       <img
-        src="/public/IMG_7413.png"
+        src="/IMG_7413.png"
         alt="Md Faruk Khan at desk"
         className="w-full max-w-[400px] lg:max-w-[480px] h-auto rounded-3xl object-cover shadow-md"
         style={{ aspectRatio: '1/1.3' }}
