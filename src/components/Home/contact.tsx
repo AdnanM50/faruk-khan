@@ -82,9 +82,9 @@ function Contact() {
             title="Grow organic traffic with our complete and SEO tools & workflow"
           />
         </div>
-        <div className="flex flex-col xl:flex-row gap-10 items-start">
+        <div className="flex  xl:flex-row flex-col-reverse gap-10 items-center xl:items-start">
           {/* Left Side - Form */}
-          <div className="w-full xl:w-2/5 space-y-4 mx-auto">
+          <div className="w-full xl:mt-0 mt-0 sm:mt-10 xl:w-2/5 space-y-4 mx-auto max-w-md md:max-w-lg">
             <Contactform />
           </div>
 
@@ -97,13 +97,13 @@ function Contact() {
               </h2>
               <div className="flex flex-col md:flex-row gap-8 items-start w-full">
                 {/* Left: Big circle + semi circle */}
-                <div className="flex flex-col gap-8 items-center min-w-[170px]">
+                <div className="flex flex-col sm:flex-row md:flex-col gap-8 items-center min-w-[170px]">
                   {/* Big Circle */}
                   <div className="mb-2">
                     <CircularProgress
                       percentage={80}
                       size={152}
-                      strokeWidth={14}
+                      strokeWidth={18}
                       color="#222"
                       backgroundColor="#E5E7EB"
                     >
@@ -119,7 +119,7 @@ function Contact() {
                   </div>
 
                   {/* Semi Circle - Organic Growth */}
-                  <div className="relative flex flex-col items-center">
+                  <div className="relative flex flex-col mb-5 items-center">
                     <div className=" w-full h-full">
                       <SemiCircularProgress
                         percentage={growthPercent}
@@ -228,7 +228,7 @@ function Contact() {
             </div>
 
             {/* Performance Test Box */}
-            <div className="bg-white rounded-2xl shadow-lg px-6 py-5 border border-gray-100 w-full mt-6 lg:mt-0 lg:absolute lg:w-[447px] lg:top-[260px] lg:left-[260px] flex flex-col">
+            <div className="bg-white rounded-2xl shadow-lg px-6 py-5 border border-gray-100 w-full lg:w-[656px] mt-6 lg:mt-0 lg:absolute xl:w-[447px] lg:top-[260px] lg:left-[260px] flex flex-col">
               <h2 className="text-base font-semibold text-gray-900 mb-4">
                 Performance Test
               </h2>
@@ -240,7 +240,7 @@ function Contact() {
                     <CircularProgress
                       percentage={55}
                       size={120}
-                      strokeWidth={12}
+                      strokeWidth={18}
                       color="#222"
                       backgroundColor="#E5E7EB"
                     >

@@ -21,8 +21,8 @@ export const CircularProgress: React.FC<CircularProgressProps> = ({
   const circumference = radius * 2 * Math.PI;
   const offset = circumference - (percentage / 100) * circumference;
 
-  // Only use segmented color for the main big circle (size=152, strokeWidth=14, percentage=80)
-  const isMainBigCircle = size === 152 && strokeWidth === 14 && percentage === 80;
+  // Use segmented gray arc for the main big circle (detect by size only)
+  const isMainBigCircle = size === 152;
 
   // Add true half-circle (gauge) support for Organic Growth (size=100, strokeWidth=12)
   const isGauge = size === 100 && strokeWidth === 12;
@@ -30,12 +30,12 @@ export const CircularProgress: React.FC<CircularProgressProps> = ({
   let progressCircle;
   let svgProps = {};
   if (isMainBigCircle) {
-    // Segmented color version
+    // Segmented gray tones to match Figma
     const segments = [
-      { color: '#1A1A1A', percent: 0.35 },
-      { color: '#6F6F6F', percent: 0.20 },
-      { color: '#555555', percent: 0.15 },
-      { color: '#1A1A1A', percent: 0.30 },
+      { color: '#1E1E1E', percent: 0.36 },
+      { color: '#747474', percent: 0.20 },
+      { color: '#515151', percent: 0.14 },
+      { color: '#1E1E1E', percent: 0.30 },
     ];
     let startPercent = 0;
     progressCircle = segments.map((seg, i) => {

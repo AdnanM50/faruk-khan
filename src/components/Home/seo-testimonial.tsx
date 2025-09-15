@@ -66,30 +66,31 @@ export default function SEOTestimonialSection() {
 
       <div className="flex flex-col md:flex-row gap-4 items-center md:items-start justify-center">
         {/* Left side */}
-        <div className="flex flex-col items-center md:items-start gap-4 w-full md:w-[30%]">
+        <div
+          className="flex flex-col items-center md:items-start gap-4 w-full md:w-[35%] lg:w-[30%] px-2 sm:px-4 lg:px-0"
+        >
           <img
             src="/clogo.png"
             alt="logo"
-            className="w-[120px]"
+            className="w-[90px] sm:w-[110px] md:w-[120px] lg:w-[120px] lg:mb-1 mb-1 sm:mb-2"
           />
-          <div className="flex items-end mb-1">
-            <span className="text-[48px] font-light text-gray-800 leading-none">4.92/5</span>
-            <span className="text-2xl ml-2 text-gray-700 font-normal">Rating</span>
+          <div className="flex items-end mb-1 sm:mb-2 lg:mb-1">
+            <span className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[48px] font-light text-gray-800 leading-none">4.92/5</span>
+            <span className="text-lg sm:text-xl md:text-2xl lg:text-2xl ml-2 text-gray-700 font-normal">Rating</span>
           </div>
-          <div className="flex gap-1 mt-2">
+          <div className="flex gap-0.5 sm:gap-1 mt-1 sm:mt-2 lg:gap-1 lg:mt-2">
             <Star /><Star /><Star /><Star /><HalfStar />
           </div>
-          
           <img
             src="/image 2.png"
             alt="Google Reviews Badge"
-            className="max-w-[247.75px] max-h-[34px] mt-2"
+            className="max-w-[180px] sm:max-w-[220px] md:max-w-[247.75px] lg:max-w-[247.75px] max-h-[28px] sm:max-h-[32px] md:max-h-[34px] lg:max-h-[34px] mt-1 sm:mt-2 lg:mt-2"
           />
-          <div className="flex gap-4 mt-4">
-            <button className="px-4 py-2 bg-black text-white cursor-pointer rounded-lg text-sm font-medium">
-               <img src="/icons/image 3.png" alt="arrow" className="inline-block mr-1" />Review Us
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-3 sm:mt-4 lg:mt-4 w-full">
+            <button className="flex items-center justify-center px-3 py-2 sm:px-4 sm:py-2 bg-black text-white cursor-pointer rounded-lg text-xs sm:text-sm font-medium w-full sm:w-auto lg:w-auto">
+              <img src="/icons/image 3.png" alt="arrow" className="inline-block mr-1 w-4 h-4" />Review Us
             </button>
-            <button className="px-4 py-2 border border-gray-400 cursor-pointer rounded-lg font-medium text-black text-sm">
+            <button className="px-3 py-2 sm:px-4 sm:py-2 border border-gray-400 cursor-pointer rounded-lg font-medium text-black text-xs sm:text-sm w-full sm:w-auto lg:w-auto">
               Read All Review
             </button>
           </div>
