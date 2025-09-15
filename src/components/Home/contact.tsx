@@ -1,77 +1,80 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Check } from 'lucide-react';
 import { CircularProgress } from '../contact/CircularProgress';
 import Contactform from './contactform';
 import SectionTitle from '../common/section-tittle';
+import { SemiCircularProgress } from '../contact/semicircel';
 
 // ✅ New SemiCircularProgress component
-type SemiCircularProgressProps = {
-  percentage: number;
-  size?: number;
-  strokeWidth?: number;
-  color?: string;
-  backgroundColor?: string;
-};
 
-const SemiCircularProgress = ({
-  percentage,
-  size = 160,
-  strokeWidth = 14,
-  color = "#222",
-  backgroundColor = "#E5E7EB",
-}: SemiCircularProgressProps) => {
-  const radius = (size - strokeWidth) / 2;
-  const circumference = Math.PI * radius; // Half circle
-  const offset = circumference - (percentage / 100) * circumference;
-
-  return (
-    <svg
-      width={size}
-      height={size / 2}
-      viewBox={`0 0 ${size} ${size / 2}`}
-      className="overflow-visible"
-    >
-      {/* Background */}
-      <path
-        d={`
-          M ${strokeWidth / 2} ${size / 2}
-          A ${radius} ${radius} 0 0 1 ${size - strokeWidth / 2} ${size / 2}
-        `}
-        fill="none"
-        stroke={backgroundColor}
-        strokeWidth={strokeWidth}
-        strokeLinecap="round"
-      />
-
-      {/* Progress */}
-      <path
-        d={`
-          M ${strokeWidth / 2} ${size / 2}
-          A ${radius} ${radius} 0 0 1 ${size - strokeWidth / 2} ${size / 2}
-        `}
-        fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
-        strokeDasharray={circumference}
-        strokeDashoffset={offset}
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-};
 
 function Contact() {
-  const [mainScorePercent, setMainScorePercent] = useState(75);
+  const [mainScorePercent, setMainScorePercent] = useState(0);
   const [growthPercent, setGrowthPercent] = useState(0);
   const [performancePercent, setPerformancePercent] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const chartsRef = useRef<HTMLDivElement>(null);
 
+  // Intersection Observer to detect when charts section comes into view
   useEffect(() => {
-    const id = setTimeout(() => {
-      setGrowthPercent(52);
-      setPerformancePercent(55);
-    }, 100);
-    return () => clearTimeout(id);
-  }, []);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+            // Animate all charts from 0 to their final values
+            animateCharts();
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the element is visible
+        rootMargin: '0px 0px -50px 0px' // Start animation slightly before fully visible
+      }
+    );
+
+    if (chartsRef.current) {
+      observer.observe(chartsRef.current);
+    }
+
+    return () => {
+      if (chartsRef.current) {
+        observer.unobserve(chartsRef.current);
+      }
+    };
+  }, [isVisible]);
+
+  // Animation function to smoothly animate all charts
+  const animateCharts = () => {
+    const duration = 2000; // 2 seconds animation duration
+    const steps = 60; // 60 steps for smooth animation
+    const stepDuration = duration / steps;
+
+    // Final values
+    const finalMainScore = 80;
+    const finalGrowthPercent = 52;
+    const finalPerformancePercent = 55;
+
+    let currentStep = 0;
+
+    const animate = () => {
+      if (currentStep <= steps) {
+        const progress = currentStep / steps;
+        
+        // Easing function for smooth animation (ease-out)
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        
+        setMainScorePercent(Math.round(finalMainScore * easeOut));
+        setGrowthPercent(Math.round(finalGrowthPercent * easeOut));
+        setPerformancePercent(Math.round(finalPerformancePercent * easeOut));
+        
+        currentStep++;
+        setTimeout(animate, stepDuration);
+      }
+    };
+
+    animate();
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 px-4 sm:px-8 py-20">
@@ -89,7 +92,7 @@ function Contact() {
           </div>
 
           {/* Right Side - SEO Checker */}
-          <div className="w-full xl:w-3/5 relative lg:min-h-[520px]">
+          <div ref={chartsRef} className="w-full xl:w-3/5 relative lg:min-h-[520px]">
             {/* First Div - On Page SEO Checker */}
             <div className="bg-white rounded-2xl shadow-lg p-7 border border-gray-100 lg:absolute w-full lg:h-[470px] lg:top-0 lg:left-0 flex flex-col">
               <h2 className="text-[22px] font-semibold text-gray-900 mb-6">
@@ -101,7 +104,7 @@ function Contact() {
                   {/* Big Circle */}
                   <div className="mb-2">
                     <CircularProgress
-                      percentage={80}
+                      percentage={mainScorePercent}
                       size={152}
                       strokeWidth={18}
                       color="#222"
@@ -109,7 +112,7 @@ function Contact() {
                     >
                       <div className="flex flex-col items-center justify-center">
                         <span className="text-[2.2rem] font-bold text-gray-900 leading-none">
-                          640
+                          {Math.round((mainScorePercent / 80) * 640)}
                         </span>
                         <span className="text-[15px] text-gray-500 font-medium mt-1">
                           for 28 Pages
@@ -238,7 +241,7 @@ function Contact() {
                   {/* Circular Progress Chart */}
                   <div className="mb-4">
                     <CircularProgress
-                      percentage={55}
+                      percentage={performancePercent}
                       size={120}
                       strokeWidth={18}
                       color="#222"
@@ -246,7 +249,7 @@ function Contact() {
                     >
                       <div className="flex flex-col items-center justify-center">
                         <span className="text-2xl font-bold text-gray-900 leading-none">
-                          55%
+                          {performancePercent}%
                         </span>
                       </div>
                     </CircularProgress>

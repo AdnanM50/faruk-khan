@@ -11,7 +11,7 @@ import ServiceCases from "../components/service/service-cases"
 
 const Service = () => {
   return (
-    <>
+    <div className="playfair-font">
  <ServicesHero />
  <ServiceProvenResult />
  <ServicesSrx />
@@ -21,7 +21,7 @@ const Service = () => {
  <ServiceFaqSection />
   <SEOTestimonialSection />
        <LastStatement />
-    </>
+    </div>
   )
 }
 

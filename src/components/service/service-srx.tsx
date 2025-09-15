@@ -4,32 +4,32 @@ import SectionTitle from '../common/section-tittle';
 
 const services = [
   {
-    icon: '/icons/global-search.png',
+    icon: '/icons/global-search1.png',
     title: 'Full WordPress SEO Audits',
     desc: 'I perform a comprehensive audit of your WordPress website, covering on-page SEO, technical SEO, and off-page factors. This includes identifying issues.',
   },
   {
-    icon: '/icons/monitor.png',
+    icon: '/icons/search.png',
     title: 'Keyword Research & Targeting',
     desc: 'Using in-depth research tools, I identify high-intent keywords relevant to your niche. I focus on finding the right balance between competitive keywords.',
   },
   {
-    icon: '/icons/user-search.png',
+    icon: '/icons/setting-2.png',
     title: 'On-Page Optimization',
     desc: '(Meta Tags, Content, Image Optimization)\nUsing in-depth research tools, I identify high-intent keywords relevant to your niche. I focus on finding the right balance between competitive keywords.',
   },
   {
-    icon: '/icons/monitor.png',
+    icon: '/icons/simcard.png',
     title: 'Technical SEO',
     desc: '(Site Speed, Structured Data, Mobile Optimization)\nUsing in-depth research tools, I identify high-intent keywords relevant to your niche. I focus on finding the right balance between competitive keywords.',
   },
   {
-    icon: '/icons/global-search.png',
+    icon: '/icons/blogger.png',
     title: 'Content Strategy & Blogging',
     desc: 'Using in-depth research tools, I identify high-intent keywords relevant to your niche. I focus on finding the right balance between competitive keywords.',
   },
   {
-    icon: '/icons/user-search.png',
+    icon: '/icons/graph.png',
     title: 'SEO Reporting & Analytics',
     desc: 'Using in-depth research tools, I identify high-intent keywords relevant to your niche. I focus on finding the right balance between competitive keywords.',
   },

@@ -7,19 +7,19 @@ const blogs = [
     tag: "SEO",
     date: "September 24, 2024",
     title: "Google Product Studio launches AI-generated video creation tool",
-    image: "/public/blog1.jpg",
+    image: "/Rectangle 2.png",
   },
   {
     tag: "Marketing",
     date: "September 24, 2024",
     title: "Visual content and SEO: How to use images and videos in 2025",
-    image: "/public/blog2.jpg",
+    image: "/blog.png",
   },
   {
     tag: "SEO",
     date: "September 24, 2024",
     title: "The art of AI–enhanced content: 8 ways to keep human creativity front and center",
-    image: "/public/blog3.jpg",
+    image: "/Rectangle3.png",
   },
 ];
 
@@ -35,7 +35,7 @@ const BlogSection = () => (
           >
             <div className="w-full max-h-[240px] bg-neutral-100">
               <img
-                src={'/blog.png'}
+                src={blog.image}
                 alt={blog.title}
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -45,9 +45,9 @@ const BlogSection = () => (
             <div className="flex flex-col gap-2 p-5 border-t border-neutral-100">
               <div className="flex items-center gap-3 mb-1">
                 <span className="text-xs font-semibold bg-neutral-100 px-2 py-1 rounded text-neutral-800">{blog.tag}</span>
-                <span className="text-xs text-neutral-500">{blog.date}</span>
+                <span className="text-[14px] text-[#121212]">{blog.date}</span>
               </div>
-              <h3 className="text-base font-semibold text-neutral-900 leading-snug">
+              <h3 className="text-base font-semibold text-[#333333] leading-snug">
                 {blog.title}
               </h3>
             </div>

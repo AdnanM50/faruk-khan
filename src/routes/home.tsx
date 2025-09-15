@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <div >
       <HeroSection />
-      <div className="playfair-font">
+      <div className="!playfair-font">
       <ClientSection />
       <ServicesSection />
       <AboutSection />

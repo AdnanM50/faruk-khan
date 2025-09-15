@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface CircularProgressProps {
   percentage: number;
@@ -17,20 +17,25 @@ export const CircularProgress: React.FC<CircularProgressProps> = ({
   backgroundColor = '#E5E7EB',
   children
 }) => {
+  const [animatedPercentage, setAnimatedPercentage] = useState(0);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setAnimatedPercentage(percentage);
+    }, 50); // tiny delay so animation triggers
+    return () => clearTimeout(timeout);
+  }, [percentage]);
+
   const radius = (size - strokeWidth) / 2;
   const circumference = radius * 2 * Math.PI;
-  const offset = circumference - (percentage / 100) * circumference;
+  const offset = circumference - (animatedPercentage / 100) * circumference;
 
-  // Use segmented gray arc for the main big circle (detect by size only)
   const isMainBigCircle = size === 152;
-
-  // Add true half-circle (gauge) support for Organic Growth (size=100, strokeWidth=12)
   const isGauge = size === 100 && strokeWidth === 12;
 
   let progressCircle;
   let svgProps = {};
   if (isMainBigCircle) {
-    // Segmented gray tones to match Figma
     const segments = [
       { color: '#1E1E1E', percent: 0.36 },
       { color: '#747474', percent: 0.20 },
@@ -62,10 +67,8 @@ export const CircularProgress: React.FC<CircularProgressProps> = ({
     });
     svgProps = { className: 'transform rotate-180' };
   } else if (isGauge) {
-    // True half-circle gauge: #232323 progress, #BDBDBD remainder
     const halfCirc = circumference / 2;
-    const progressLength = halfCirc * (percentage / 100);
-    // Progress arc (#232323)
+    const progressLength = halfCirc * (animatedPercentage / 100);
     progressCircle = (
       <circle
         cx={size / 2}
@@ -80,10 +83,8 @@ export const CircularProgress: React.FC<CircularProgressProps> = ({
         className="transition-all duration-1000 ease-out"
       />
     );
-    // Rotate so arc starts at bottom left and ends at bottom right
     svgProps = { style: { transform: 'rotate(-90deg)' } };
   } else {
-    // Default single color version
     progressCircle = (
       <circle
         cx={size / 2}
@@ -103,12 +104,7 @@ export const CircularProgress: React.FC<CircularProgressProps> = ({
 
   return (
     <div className="relative inline-flex items-center justify-center">
-      <svg
-        width={size}
-        height={size}
-        {...svgProps}
-      >
-        {/* Background circle */}
+      <svg width={size} height={size} {...svgProps}>
         <circle
           cx={size / 2}
           cy={size / 2}
@@ -119,7 +115,6 @@ export const CircularProgress: React.FC<CircularProgressProps> = ({
           strokeDasharray={isGauge ? `${circumference / 2} ${circumference}` : circumference}
           strokeDashoffset={isGauge ? (circumference / 2) : 0}
         />
-        {/* Progress circle */}
         {progressCircle}
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">

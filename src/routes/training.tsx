@@ -10,7 +10,7 @@ import SeoVideoCourse from "../components/training/seo-video-course";
 
 const SEOTraining = () => {
   return (
-   <>
+    <div className="playfair-font">
    <SeoHero />
    <Partners />
          <FeatureSection />
@@ -20,7 +20,7 @@ const SEOTraining = () => {
 <SeoVideoCourse />
   <SEOTestimonialSection />
        <LastStatement />
-   </>
+   </div>
   );
 };
 export default SEOTraining;
